@@ -1,41 +1,34 @@
-import React from 'react'
 
 const App = () => {
+  let n = 12; //number 
+  let s  = "hello world" // string 
+  let b  = false; // Boolean
+  let nu  = null; 
+  let un  = undefined; 
 
-  // Non - parameterized function 
-  const handleclick = () => {
-    alert("button clicked")
+  let aar = [<h1>hello </h1>,1,2,3,4 , "hello ", null , undefined];
+
+  let obj = {
+    name : "anmol",
+    age : "12"
   }
 
-  // parameterized function
-const handleparamclick = (msg) => {
-  alert(msg)
-}
-
-const wrapperhandler = () =>{
-  handleparamclick("raat anheri hai , bhuj gaye  diye  ")
-}
-
-//same // const wrapperhandler = () => handleparamclick("raat anheri hai , bhuj gaye  diye  ")
-
-
-  //js Logic.. 
-
-
+// java..
   return (
-    <>
-      <h1> hello </h1>
-      <h1>world</h1>
-      <button onClick={handleclick}>Click</button>
-      <button onClick={wrapperhandler}>Click to print parameter </button>
-      
-    {/* on more option  */}
-    {/* <button onClick={() => handleparamclick("raat anheri hai , bhuj gaye  diye  ")}>Click to print parameter </button>   */}
-
-
-    </>
+    <div>
+      <h1> DataTypes</h1>
+      <h2> number : {n}</h2>
+      <h2> string : {s}</h2>
+      <h2> Boolean : {b ? "hello" : "Not Hello" } </h2>
+      <h2> null : {nu}</h2>
+      <h2> undefined : {un}</h2>
+      <h2> array : {aar}</h2>
+      {/* <h2> object : {obj}</h2> invalid  */}
+      <h2> object : {obj.name} | {obj.age}</h2>
+    </div>
   )
 }
+
 export default App
 
 
@@ -47,20 +40,43 @@ export default App
 
 
 
+ 
 
-
-
-
-
-// Empty tag  ***********************************************
-
-
+// import React from 'react'
 
 // const App = () => {
+
+//   // Non - parameterized function 
+//   const handleclick = () => {
+//     alert("button clicked")
+//   }
+
+//   // parameterized function
+// const handleparamclick = (msg) => {
+//   alert(msg)
+// }
+
+// const wrapperhandler = () =>{
+//   handleparamclick("raat anheri hai , bhuj gaye  diye  ")
+// }
+
+// //same // const wrapperhandler = () => handleparamclick("raat anheri hai , bhuj gaye  diye  ")
+
+
+//   //js Logic.. 
+
+
 //   return (
 //     <>
 //       <h1> hello </h1>
 //       <h1>world</h1>
+//       <button onClick={handleclick}>Click</button>
+//       <button onClick={wrapperhandler}>Click to print parameter </button>
+      
+//     {/* on more option  */}
+//     {/* <button onClick={() => handleparamclick("raat anheri hai , bhuj gaye  diye  ")}>Click to print parameter </button>   */}
+
+
 //     </>
 //   )
 // }
@@ -68,37 +84,65 @@ export default App
 
 
 
-// Fragment  ***********************************************
 
 
-// import { Fragment } from 'react'
 
 
-// const App = () => {
-//   return (
-//     <Fragment>
-//       <h1> hello </h1>
-//       <h1>world</h1>
-//     </Fragment>
-//   )
-// }
-
-// export default App
-// export const ;
 
 
-// ***********************************************
-
-// import React from 'react'
 
 
-// const App = () => {
-//   return (
-//     <div> 
-//       <h1> hello </h1>
-//       <h1>world</h1>
-//     </div>
-//   )
-// }
 
-// export default App
+
+
+
+// // Empty tag  ***********************************************
+
+
+
+// // const App = () => {
+// //   return (
+// //     <>
+// //       <h1> hello </h1>
+// //       <h1>world</h1>
+// //     </>
+// //   )
+// // }
+// // export default App
+
+
+
+// // Fragment  ***********************************************
+
+
+// // import { Fragment } from 'react'
+
+
+// // const App = () => {
+// //   return (
+// //     <Fragment>
+// //       <h1> hello </h1>
+// //       <h1>world</h1>
+// //     </Fragment>
+// //   )
+// // }
+
+// // export default App
+// // export const ;
+
+
+// // ***********************************************
+
+// // import React from 'react'
+
+
+// // const App = () => {
+// //   return (
+// //     <div> 
+// //       <h1> hello </h1>
+// //       <h1>world</h1>
+// //     </div>
+// //   )
+// // }
+
+// // export default App
