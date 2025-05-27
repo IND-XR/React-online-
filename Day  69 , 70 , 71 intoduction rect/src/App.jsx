@@ -1,35 +1,72 @@
 
+
+
 const App = () => {
-  let n = 12; //number 
-  let s  = "hello world" // string 
-  let b  = false; // Boolean
-  let nu  = null; 
-  let un  = undefined; 
+  
+  const profiles = [  
+    { name : "john" ,age :12},
+    { name : "harry" ,age : 34},
+    { name : "sarthak" ,age : 45},
+  ];
 
-  let aar = [<h1>hello </h1>,1,2,3,4 , "hello ", null , undefined];
+  const updatedProfiles = profiles.map((profile , index)=>{
+    return (
+    <li>
+      <span>Name: {profile.name}  </span>
+       <span>age: {profile.age}  </span>
+    </li> 
+    )
+    console.log(profile.name, profile.age)
 
-  let obj = {
-    name : "anmol",
-    age : "12"
-  }
+  })
 
-// java..
+  console.log(updatedProfiles)
+
+  //Javas..
   return (
     <div>
-      <h1> DataTypes</h1>
-      <h2> number : {n}</h2>
-      <h2> string : {s}</h2>
-      <h2> Boolean : {b ? "hello" : "Not Hello" } </h2>
-      <h2> null : {nu}</h2>
-      <h2> undefined : {un}</h2>
-      <h2> array : {aar}</h2>
-      {/* <h2> object : {obj}</h2> invalid  */}
-      <h2> object : {obj.name} | {obj.age}</h2>
+      <h1> Rendering Json</h1>
+      <ol>{updatedProfiles}</ol>
+      {/* {profiles[0].name}    Array  */}
     </div>
   )
 }
 
 export default App
+
+
+
+// const App = () => {
+//   let n = 12; //number 
+//   let s  = "hello world" // string 
+//   let b  = false; // Boolean
+//   let nu  = null; 
+//   let un  = undefined; 
+
+//   let aar = [<h1>hello </h1>,1,2,3,4 , "hello ", null , undefined];
+
+//   let obj = {
+//     name : "anmol",
+//     age : "12"
+//   }
+
+// // java..
+//   return (
+//     <div>
+//       <h1> DataTypes</h1>
+//       <h2> number : {n}</h2>
+//       <h2> string : {s}</h2>
+//       <h2> Boolean : {b ? "hello" : "Not Hello" } </h2>
+//       <h2> null : {nu}</h2>
+//       <h2> undefined : {un}</h2>
+//       <h2> array : {aar}</h2>
+//       {/* <h2> object : {obj}</h2> invalid  */}
+//       <h2> object : {obj.name} | {obj.age}</h2>
+//     </div>
+//   )
+// }
+
+// export default App
 
 
 
