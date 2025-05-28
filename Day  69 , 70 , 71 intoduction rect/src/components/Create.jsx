@@ -15,6 +15,7 @@ const Create = (props) =>  {
     e.preventDefault();
     const newuser = {Fullname , age};
     console.log(newuser) // api -backend  -database
+    
     // set the user in the setusers
 
   }
