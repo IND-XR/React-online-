@@ -14,8 +14,7 @@ const Read = (props) => {
   })
 
    // javas..
-    // javas..
-     // javas..
+  
   return (
     <div>
       <hr />
