@@ -1,38 +1,79 @@
 
-
+import { useState } from "react";
 
 const App = () => {
-  
-  const profiles = [  
-    { name : "john" ,age :12},
-    { name : "harry" ,age : 34},
-    { name : "sarthak" ,age : 45},
-  ];
+  // let username = " sarthak";
+  const [username ,setUsername] = useState ("sarthak");
 
-  const updatedProfiles = profiles.map((profile , index)=>{
-    return (
-    <li>
-      <span>Name: {profile.name}  </span>
-       <span>age: {profile.age}  </span>
-    </li> 
-    )
-    console.log(profile.name, profile.age)
 
-  })
+  const changeHandler = () =>{
+    // username = "Ankur"
+    setUsername("Ankur")
+    // let a use.(username = "Ankur")
+  }
+  console.log(username)
 
-  console.log(updatedProfiles)
 
-  //Javas..
+  //javas..
   return (
     <div>
-      <h1> Rendering Json</h1>
-      <ol>{updatedProfiles}</ol>
-      {/* {profiles[0].name}    Array  */}
+      <h1>Username</h1>
+      <h1>{username}</h1>
+      <button onClick={changeHandler}> checkname </button>
     </div>
   )
 }
 
 export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // Array of object
+
+// const App = () => {
+  
+//   const profiles = [  
+//     { name : "john" ,age :12},
+//     { name : "harry" ,age : 34},
+//     { name : "sarthak" ,age : 45},
+
+//   ];
+
+//   const updatedProfiles = profiles.map((profile , index)=>{
+//     return (
+//     <li key={index}>
+//       <span>Name: {profile.name}  </span>
+//       <span>age: {profile.age}  </span>
+//     </li> 
+//     )
+//     console.log(profile.name, profile.age)
+
+//   })
+
+//   console.log(updatedProfiles)
+
+//   //Javas..
+//   return (
+//     <div>
+//       <h1> Rendering Json</h1>
+//       <ol>{updatedProfiles}</ol>
+//       {/* {profiles[0].name}    Array  */}
+//     </div>
+//   )
+// }
+
+// export default App
 
 
 
