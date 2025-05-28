@@ -1,31 +1,53 @@
 // 75 **************************************************************
 import { useState } from "react"
+import Create from "./components/Create";
+import Read from "./components/Read";
 
 const App = () => {
-  const [users , setuser] = useState(
+  const [users , setusers] = useState(
     [
-      { name : "john" ,age :12},
-      { name : "harry" ,age : 34},
-      { name : "sarthak" ,age : 45},
+      { name : "john",age :12},
+      { name : "harry",age : 34},
+      { name : "sarthak",age : 45},
     ]
   );
 
-  const renderuser = users.map(( user ,index) =>{
-     return(
-      <li key={index}> 
-        <p>name :{user.name}</p>
-      </li>
-     )
-  })
   
-  const [Fullname, setfullname] = useState("");
+  //Javas..
+  return (
+    <div>
+      <Create/>
+      <Read users={users} setusers={setusers}/>
+    </div>
+  )
+}
 
-  const [age, setage] = useState(18);
+export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // const [Fullname, setfullname] = useState("");
+
+  // const [age, setage] = useState(18);
 
   // const changeHandler = (e) =>{
   //   setfullname(e.target.value)
   // }
-  console.log(Fullname)
+  // console.log(Fullname)
 
   // const changeHandler = (e) => setfullname(e.target.value)
   
@@ -34,53 +56,7 @@ const App = () => {
   //  const changeHandlerage = (e) =>{
   //   setage(e.target.value)
   // }
-  console.log(age)
-
-  const submitHandler = (e) =>{
-    e.preventDefault();
-    const newuser = {Fullname , age};
-    console.log(newuser)
-  }
-
-
-
-
-  //Javas..
-  return (
-    <div>
-      <h1> Register user</h1>
-      <form action="" onSubmit={submitHandler} >
-
-        <input 
-        onChange={(e) => setfullname(e.target.value)} 
-        value={Fullname}
-        type="text" 
-        placeholder="full name" name="" id="" 
-        />
-
-
-        <input 
-        onChange={(e) => setage(e.target.value)}
-        value={age}
-        type="number" 
-        placeholder="Age" name="" id="" 
-        />
-
-
-        <button >subjmit</button>
-      </form>
-
-      <hr />
-
-      <h1> User </h1>
-      <ol>{renderuser}</ol>
-      
-    </div>
-  )
-}
-
-export default App
-
+  // console.log(age)
 
 
 
