@@ -20,19 +20,27 @@ const App = () => {
   
   const [Fullname, setfullname] = useState("");
 
-  const [age, setage] = useState("");
+  const [age, setage] = useState(18);
 
-  const changeHandler = (e) =>{
-    setfullname(e.target.value)
-  }
+  // const changeHandler = (e) =>{
+  //   setfullname(e.target.value)
+  // }
   console.log(Fullname)
 
+  // const changeHandler = (e) => setfullname(e.target.value)
+  
+  // console.log(Fullname)
 
-
-   const changeHandlerage = (e) =>{
-    setage(e.target.value)
-  }
+  //  const changeHandlerage = (e) =>{
+  //   setage(e.target.value)
+  // }
   console.log(age)
+
+  const submitHandler = (e) =>{
+    e.preventDefault();
+    const newuser = {Fullname , age};
+    console.log(newuser)
+  }
 
 
 
@@ -41,10 +49,10 @@ const App = () => {
   return (
     <div>
       <h1> Register user</h1>
-      <form action="" >
+      <form action="" onSubmit={submitHandler} >
 
         <input 
-        onChange={changeHandler} 
+        onChange={(e) => setfullname(e.target.value)} 
         value={Fullname}
         type="text" 
         placeholder="full name" name="" id="" 
@@ -52,13 +60,14 @@ const App = () => {
 
 
         <input 
-        onChange={changeHandlerage}
-
+        onChange={(e) => setage(e.target.value)}
+        value={age}
         type="number" 
-        placeholder="Age" name="" id="" />
+        placeholder="Age" name="" id="" 
+        />
 
 
-        <button>subjmit</button>
+        <button >subjmit</button>
       </form>
 
       <hr />
