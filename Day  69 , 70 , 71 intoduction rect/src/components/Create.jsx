@@ -15,11 +15,9 @@ const Create = (props) =>  {
     e.preventDefault();
     const newuser = {Fullname , age};
     console.log(newuser) // api -backend  -database
-<<<<<<< HEAD
 
     // set the user in the setusers
-=======
->>>>>>> parent of 357270f (Day 75  Two - Way Binding , Props , Ddrilling & styling  in React :-  3  Props Drilling)
+
     // set the user in the setusers
 
   }
