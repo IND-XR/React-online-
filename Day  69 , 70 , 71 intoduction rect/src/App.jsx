@@ -1,30 +1,109 @@
-
-import { useState } from "react";
+// 75 **************************************************************
+import { useState } from "react"
 
 const App = () => {
-  // let username = " sarthak";
-  const [username ,setUsername] = useState ("sarthak");
+  const [users , setuser] = useState(
+    [
+      { name : "john" ,age :12},
+      { name : "harry" ,age : 34},
+      { name : "sarthak" ,age : 45},
+    ]
+  );
 
+  const renderuser = users.map(( user ,index) =>{
+     return(
+      <li key={index}> 
+        <p>name :{user.name}</p>
+      </li>
+     )
+  })
+  
+  const [Fullname, setfullname] = useState("");
 
-  const changeHandler = () =>{
-    // username = "Ankur"
-    setUsername("Ankur")
-    // let a use.(username = "Ankur")
+  const [age, setage] = useState("");
+
+  const changeHandler = (e) =>{
+    setfullname(e.target.value)
   }
-  console.log(username)
+  console.log(Fullname)
 
 
-  //javas..
+
+   const changeHandlerage = (e) =>{
+    setage(e.target.value)
+  }
+  console.log(age)
+
+
+
+
+  //Javas..
   return (
     <div>
-      <h1>Username</h1>
-      <h1>{username}</h1>
-      <button onClick={changeHandler}> checkname </button>
+      <h1> Register user</h1>
+      <form action="" >
+
+        <input 
+        onChange={changeHandler} 
+        value={Fullname}
+        type="text" 
+        placeholder="full name" name="" id="" 
+        />
+
+
+        <input 
+        onChange={changeHandlerage}
+
+        type="number" 
+        placeholder="Age" name="" id="" />
+
+
+        <button>subjmit</button>
+      </form>
+
+      <hr />
+
+      <h1> User </h1>
+      <ol>{renderuser}</ol>
+      
     </div>
   )
 }
 
 export default App
+
+
+
+
+
+
+// 72 **************************************************************
+// import { useState } from "react";
+
+// const App = () => {
+//   // let username = " sarthak";
+//   const [username ,setUsername] = useState ("sarthak");
+
+
+//   const changeHandler = () =>{
+//     // username = "Ankur"
+//     setUsername("Ankur")
+//     // let a use.(username = "Ankur")
+//   }
+//   console.log(username)
+
+
+//   //javas..
+//   return (
+//     <div>
+//       <h1>Username</h1>
+//       <h1>{username}</h1>
+//       <button onClick={changeHandler}> checkname </button>
+//     </div>
+//   )
+// }
+
+// export default App
 
 
 
