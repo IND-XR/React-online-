@@ -1,32 +1,87 @@
-// 75 **************************************************************
-import { useState } from "react"
-import Create from "./components/Create";
-import Read from "./components/Read";
-
-
-
+import { useState } from "react";
 
 const App = () => {
-  const [users , setusers] = useState(
-    [
-      { name : "john",age :12},
-      { name : "harry",age : 34},
-      { name : "sarthak",age : 45},
-    ]
-  );
+  const [todos, settodos] = useState([
+    {id: 1 , title:"Kam Krle bahi", isCompleted : false},
+  ]);
 
-  //Javas.. 
-  //Javas.. 
 
+  const [title, settitle] = useState()
+
+  console.log(title)
+
+
+//javas..
   return (
     <div>
-      <Create/>
-      <Read users={users} setusers={setusers}/>
+      <h1> Create takes</h1>
+      <form action="">
+        <input 
+        onChange={(e)=>(settitle(e.target.value))} 
+        value={title}
+        type="text" 
+        placeholder="Takes" name="" id="" 
+        />
+   
+        <input type="checkbox"  /> completed
+
+        <br /> <br />
+        <button>Create</button>
+      </form>
     </div>
   )
 }
 
 export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // 75 **************************************************************
+// import { useState } from "react"
+// import Create from "./components/Create";
+// import Read from "./components/Read";
+
+
+
+
+// const App = () => {
+//   const [users , setusers] = useState(
+//     [
+//       { name : "john",age :12},
+//       { name : "harry",age : 34},
+//       { name : "sarthak",age : 45},
+//     ]
+//   );
+
+//   //Javas.. 
+//   //Javas.. 
+
+//   return (
+//     <div>
+//       <Create/>
+//       <Read users={users} setusers={setusers}/>
+//     </div>
+//   )
+// }
+
+// export default App
 
 
 
