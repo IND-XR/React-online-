@@ -1,23 +1,56 @@
 import { useState } from "react";
+import {nanoid} from "nanoid";
 
 const App = () => {
   const [todos, settodos] = useState([
+
     { id: 1, title: "Kam Krle bahi", isCompleted: false },
+
   ]);
 
   const [title, settitle] = useState("");
-  const [completed, setcompleted] = useState(true);
-  const [gender, setgender] = useState("male")
 
-  const [city, setcity] = useState("mumbai");
+  // console.log(title);
 
-  console.log(title);
+  const submitHandler = (e) =>{
+    e.preventDefault();
+
+    const newtodo = {
+      id: nanoid(),
+      title,
+      isCompleted:false,
+    };
+
+    console.log(newtodo);
+
+
+    // copy original data , pushing a data in copy Data & setting the Data   
+    let copytodos = [...todos];  //old data
+    copytodos.push(newtodo)   // new data
+    settodos(copytodos);       // old data  & new Data mix in one Data
+
+    // settodos([...todos,newtodo]) wite in one line
+
+    settitle("");
+  };
+
+  console.log(todos);
+
+  const rendertodos = todos.map((todo) =>{
+    return(
+      <li key={todo.id}>
+        <p>title :{todo.title}</p>
+      </li>
+    )
+
+  })
+
 
   //javas..
   return (
     <div>
       <h1> Create takes</h1>
-      <form action="">
+      <form action=""  onSubmit={submitHandler}>
         <input
           onChange={(e) => settitle(e.target.value)}
           value={title}
@@ -27,54 +60,108 @@ const App = () => {
           id=""
         />
 
-        // *Check box*
-        <input
-          type="checkbox"
-          onChange={(e) => { setcompleted(e.target.checked); }}
-          checked={completed}
-        />completed
-
-
         <br /> <br />
-        // *Radio male*
-        <input
-          value="male"
-          onChange={(e) => { setgender(e.target.value);}}
-          checked = {gender == "male" && true}
-          type="radio"
-        />male
-
-        <br /> <br />
-
-        // *Radio Female*
-
-
-        <input
-          value="female"
-          onChange={(e) => { setgender(e.target.value); }}
-          checked = {gender == "female" && true}
-          type="radio"
-        /> Female
-
-        <br /> <br />
-
-        // * Select *
-        <select value = {city} name="" id="" onChange={(e)=>{setcity(e.target.value)}}   >
-          <option value="delhi"> Delhi </option>
-          <option value="mumbai"> mumbai </option>
-          <option value="kolkata"> kolkata </option>
-
-        </select>
-
-        <br /> <br />
+        <hr />
+        <h1>Pending Todos</h1>
 
         <button>Create</button>
       </form>
+
+      <br />
+      <ol>{rendertodos}</ol>
     </div>
   );
 };
 
 export default App;
+
+
+// // 76 **************************************************************
+// import { useState } from "react";
+
+// const App = () => {
+//   const [todos, settodos] = useState([
+//     { id: 1, title: "Kam Krle bahi", isCompleted: false },
+//   ]);
+
+//   const [title, settitle] = useState("");
+//   const [completed, setcompleted] = useState(true);
+//   const [gender, setgender] = useState("male")
+
+//   const [city, setcity] = useState("mumbai");
+
+//   console.log(title);
+
+//   //javas..
+//   return (
+//     <div>
+//       <h1> Create takes</h1>
+//       <form action="">
+//         <input
+//           onChange={(e) => settitle(e.target.value)}
+//           value={title}
+//           type="text"
+//           placeholder="Takes"
+//           name=""
+//           id=""
+//         />
+
+//         // *Check box*
+//         <input
+//           type="checkbox"
+//           onChange={(e) => { setcompleted(e.target.checked); }}
+//           checked={completed}
+//         />completed
+
+
+//         <br /> <br />
+//         // *Radio male*
+//         <input
+//           value="male"
+//           onChange={(e) => { setgender(e.target.value);}}
+//           checked = {gender == "male" && true}
+//           type="radio"
+//         />male
+
+//         <br /> <br />
+
+//         // *Radio Female*
+
+
+//         <input
+//           value="female"
+//           onChange={(e) => { setgender(e.target.value); }}
+//           checked = {gender == "female" && true}
+//           type="radio"
+//         /> Female
+
+//         <br /> <br />
+
+//         // * Select *
+//         <select value = {city} name="" id="" onChange={(e)=>{setcity(e.target.value)}}   >
+//           <option value="delhi"> Delhi </option>
+//           <option value="mumbai"> mumbai </option>
+//           <option value="kolkata"> kolkata </option>
+
+//         </select>
+
+//         <br /> <br />
+
+//         <button>Create</button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+
+
+
+
+
+
+
 
 // // 75 **************************************************************
 // import { useState } from "react"
