@@ -9,6 +9,8 @@ const App = () => {
   const [completed, setcompleted] = useState(true);
   const [gender, setgender] = useState("male")
 
+  const [city, setcity] = useState("mumbai");
+
   console.log(title);
 
   //javas..
@@ -46,13 +48,25 @@ const App = () => {
 
         // *Radio Female*
 
-        
+
         <input
           value="female"
           onChange={(e) => { setgender(e.target.value); }}
           checked = {gender == "female" && true}
           type="radio"
         /> Female
+
+        <br /> <br />
+
+        // * Select *
+        <select value = {city} name="" id="" onChange={(e)=>{setcity(e.target.value)}}   >
+          <option value="delhi"> Delhi </option>
+          <option value="mumbai"> mumbai </option>
+          <option value="kolkata"> kolkata </option>
+
+        </select>
+
+        <br /> <br />
 
         <button>Create</button>
       </form>
