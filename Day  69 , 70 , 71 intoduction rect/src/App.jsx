@@ -1,5 +1,7 @@
-import { useState } from "react";
-import {nanoid} from "nanoid";
+import { Fragment, useState } from "react";
+import Create from "./components/Create";
+import Read from "./components/Read";
+
 
 const App = () => {
   const [todos, settodos] = useState([
@@ -7,73 +9,20 @@ const App = () => {
     { id: 1, title: "Kam Krle bahi", isCompleted: false },
 
   ]);
-
-  const [title, settitle] = useState("");
-
   // console.log(title);
-
-  const submitHandler = (e) =>{
-    e.preventDefault();
-
-    const newtodo = {
-      id: nanoid(),
-      title,
-      isCompleted:false,
-    };
-
-    console.log(newtodo);
-
-
-    // copy original data , pushing a data in copy Data & setting the Data   
-    let copytodos = [...todos];  //old data
-    copytodos.push(newtodo)   // new data
-    settodos(copytodos);       // old data  & new Data mix in one Data
-
-    // settodos([...todos,newtodo]) wite in one line
-
-    settitle("");
-  };
-
   console.log(todos);
-
-  const rendertodos = todos.map((todo) =>{
-    return(
-      <li key={todo.id}>
-        <p>title :{todo.title}</p>
-      </li>
-    )
-
-  })
-
 
   //javas..
   return (
-    <div>
-      <h1> Create takes</h1>
-      <form action=""  onSubmit={submitHandler}>
-        <input
-          onChange={(e) => settitle(e.target.value)}
-          value={title}
-          type="text"
-          placeholder="Takes"
-          name=""
-          id=""
-        />
-
-        <br /> <br />
-        <hr />
-        <h1>Pending Todos</h1>
-
-        <button>Create</button>
-      </form>
-
-      <br />
-      <ol>{rendertodos}</ol>
-    </div>
+    <Fragment>
+      <Create todos={todos} settodos={settodos} />
+      <Read todos={todos} settodos={settodos}/>
+    </Fragment>
   );
 };
 
 export default App;
+
 
 
 // // 76 **************************************************************
