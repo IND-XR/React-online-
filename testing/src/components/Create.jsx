@@ -1,50 +1,50 @@
-import { useState } from "react"
+// import { useState } from "react"
 
-const Create = (props) => {
-    console.log(props)
-    //name 
-    const [Fullname , setFullname] = useState("");
+// const Create = (props) => {
+//     console.log(props)
+//     //name 
+//     const [Fullname , setFullname] = useState("");
 
-    const Fullchange = (e) =>{
-        setFullname(e.target.value)
+//     const Fullchange = (e) =>{
+//         setFullname(e.target.value)
 
-    }
-    console.log(Fullname)
+//     }
+//     console.log(Fullname)
 
-    // age
+//     // age
 
-    const [age , setage] = useState(18);
+//     const [age , setage] = useState(18);
 
-    const agechange = (e) =>{
-        setage(e.target.value)
+//     const agechange = (e) =>{
+//         setage(e.target.value)
 
-    }
-    console.log(age)
-
-
-
-
-    const submitHandler =(e)=>{
-        e.preventDefault()
-        const newuser = {Fullname , age };
-        console.log(newuser)
-    }
+//     }
+//     console.log(age)
 
 
 
-//javas...
-  return (
-    <div>
-        <h1> Registers user</h1>
-        <form action="" onSubmit={submitHandler}>
 
-            <input onChange={Fullchange} value={Fullname} type="text" placeholder="Full name" />
-            <input onChange={agechange} value={age}       type="number" placeholder="Age" />  
+//     const submitHandler =(e)=>{
+//         e.preventDefault()
+//         const newuser = {Fullname , age };
+//         console.log(newuser)
+//     }
 
-        <button>Submit</button>
-        </form>
-    </div>
-  )
-}
 
-export default Create
+
+// //javas...
+//   return (
+//     <div>
+//         <h1> Registers user</h1>
+//         <form action="" onSubmit={submitHandler}>
+
+//             <input onChange={Fullchange} value={Fullname} type="text" placeholder="Full name" />
+//             <input onChange={agechange} value={age}       type="number" placeholder="Age" />  
+
+//         <button>Submit</button>
+//         </form>
+//     </div>
+//   )
+// }
+
+// export default Create

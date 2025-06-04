@@ -1,25 +1,75 @@
-import { useState } from "react"
-import Read from "./components/Read"
-import Create from "./components/Create"
+import React from 'react'
+import { Fragment ,useState } from "react";
 
-const App = ()=>{
 
-  const [ users , setuser] = useState([
-    {name:"john",age:"21"},
-    {name:"sarthak",age:"23"},
-    {name:"harry",age:"22"}
-    
-  ]);
+const App = () => {
+  
+  const [gender, setgenter] = useState("male")
+  console.log(gender)
 
-  //javas..
+  // javas...
   return (
-    <div>
-      <Create/>
+    <Fragment>
+      <h1>Male or female</h1>
+      <form action="">
 
-      <Read users={users} setuser={setuser}/>
-      {/* <h1>hello</h1> */}
-    </div>
-  )
-}
+        <input
+        value="male" 
+        type="radio"
+        onChange={(e)=>{setgenter(e.target.value)}}
+        checked = {gender == "male" && true}
+        /> Male
 
+
+         <input
+         onChange={(e)=>{setgenter(e.target.value)}}
+         value="Female" 
+         type="radio" 
+         checked = {gender == "Female" && true}
+
+         
+         /> Feamle
+
+      </form>
+      
+    </Fragment>
+
+  );
+};
 export default App
+
+
+
+
+
+
+
+
+
+
+
+
+// import { useState } from "react"
+// import Read from "./components/Read"
+// import Create from "./components/Create"
+
+// const App = ()=>{
+
+//   const [ users , setuser] = useState([
+//     {name:"john",age:"21"},
+//     {name:"sarthak",age:"23"},
+//     {name:"harry",age:"22"}
+    
+//   ]);
+
+//   //javas..
+//   return (
+//     <div>
+//       <Create/>
+
+//       <Read users={users} setuser={setuser}/>
+//       {/* <h1>hello</h1> */}
+//     </div>
+//   )
+// }
+// export default App
