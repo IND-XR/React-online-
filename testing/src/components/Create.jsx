@@ -1,3 +1,82 @@
+import React, { useState } from 'react'
+
+const Create = (props) => {
+    const gender = props.gender
+    const setgenter = props.setgenter
+
+
+
+    const [title, settitle] = useState("");
+
+    console.log(settitle)
+
+    const submitHandler=(e)=>{
+        e.preventDefalut();
+    }
+
+
+    //javas..
+  return (
+    <div>
+        <h1> Create a Takes </h1>
+        <form action="" onSubmit={submitHandler}>
+            <input 
+            onChange={(e)=> e.settitle(e.target.value)}
+            value={title}
+            type="text" 
+            placeholder='Takes'
+            name="" 
+            id="" 
+            />
+            <button>Create</button>
+
+            <h1>Male or female</h1>
+            
+                    <input
+                    value="male" 
+                    type="radio"
+                    onChange={(e)=>{setgenter(e.target.value)}}
+                    checked = {gender == "male" && true}
+                    /> Male
+            
+                     <input
+                     onChange={(e)=>{setgenter(e.target.value)}}
+                     value="Female" 
+                     type="radio" 
+                     checked = {gender == "Female" && true}
+                     /> Feamle
+        </form>
+    </div>
+  )
+}
+
+export default Create
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import { useState } from "react"
 
 // const Create = (props) => {

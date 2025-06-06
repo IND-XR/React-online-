@@ -1,3 +1,58 @@
+import React from 'react'
+import { Fragment ,useState } from "react";
+
+function Read() {
+
+  const [first, setfirst] = useState(second)
+
+
+
+  //javas...
+  return (
+    <div>
+      
+
+      
+    </div>
+  )
+}
+
+export default Read
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import { useState } from "react"
 
 // const Read = () => {
