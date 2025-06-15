@@ -1,17 +1,31 @@
 import React from 'react'
-import { Fragment ,useState } from "react";
+// import { Fragment ,useState } from "react";
 
-function Read() {
+const Read = (props) =>{
+  const todos = props.todos
 
-  const [first, setfirst] = useState(second)
+  console.log(todos)
 
-
+  const rendertodos = todos.map((todo)=>{
+    return(
+      <li key={todo.id}>
+        <p>title:{todo.title}</p>
+      </li>
+    )
+  })
+ 
 
   //javas...
   return (
     <div>
-      
+      <hr />
+      <h1> Peading Todos </h1>
 
+      <ol>{rendertodos}</ol>
+
+      <br />
+      <br />
+      <hr />
       
     </div>
   )

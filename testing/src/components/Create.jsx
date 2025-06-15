@@ -1,87 +1,91 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import {nanoid} from "nanoid";
 
 const Create = (props) => {
-    const gender = props.gender
-    const setgenter = props.setgenter
+  const gender = props.gender;
+  const setgenter = props.setgenter;
+  const todos = props.todos;
+  const settodos = props.settodos;
+
+  
+  const [title, settitle] = useState("");
+
+  console.log(title);
+
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+
+  const newtodo = {
+    id : nanoid(), 
+    title,
+    isCompleted:false,
+  };
+  
+  console.log(newtodo);
+
+
+  let copytodos = [...(todos || [])] ;
+  copytodos.push(newtodo)
+  settodos(copytodos);
+
+  settitle("");
+  
+};
 
 
 
-    const [title, settitle] = useState("");
-
-    console.log(settitle)
-
-    const submitHandler=(e)=>{
-        e.preventDefalut();
-    }
-
-
-    //javas..
+  //javas..
   return (
     <div>
-        <h1> Create a Takes </h1>
-        <form action="" onSubmit={submitHandler}>
-            <input 
-            onChange={(e)=> e.settitle(e.target.value)}
-            value={title}
-            type="text" 
-            placeholder='Takes'
-            name="" 
-            id="" 
-            />
-            <button>Create</button>
+      <h1> Create a Takes </h1>
+      <form action="" onSubmit={submitHandler}>
 
-            <h1>Male or female</h1>
-            
-                    <input
-                    value="male" 
-                    type="radio"
-                    onChange={(e)=>{setgenter(e.target.value)}}
-                    checked = {gender == "male" && true}
-                    /> Male
-            
-                     <input
-                     onChange={(e)=>{setgenter(e.target.value)}}
-                     value="Female" 
-                     type="radio" 
-                     checked = {gender == "Female" && true}
-                     /> Feamle
-        </form>
+        <input
+          onChange={(e) => settitle(e.target.value)}
+          value={title}
+          type="text"
+          placeholder="Takes"
+          name=""
+          id=""
+          
+        />
+
+        
+
+        <button>Create</button>
+
+        {/* ********************* */}
+
+        <h1>Male or female</h1>
+
+        <input
+          value="male"
+          type="radio"
+          onChange={(e) => { setgenter(e.target.value); }}
+          checked={gender == "male" && true}
+        />{" "} Male
+
+        <input
+          onChange={(e) => { setgenter(e.target.value); }}
+          value="Female"
+          type="radio"
+          checked={gender == "Female" && true}
+        />{" "} Feamle
+
+      </form>
     </div>
-  )
+  );
 }
 
-export default Create
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Create;
 
 // import { useState } from "react"
 
 // const Create = (props) => {
 //     console.log(props)
-//     //name 
+//     //name
 //     const [Fullname , setFullname] = useState("");
 
 //     const Fullchange = (e) =>{
@@ -100,16 +104,11 @@ export default Create
 //     }
 //     console.log(age)
 
-
-
-
 //     const submitHandler =(e)=>{
 //         e.preventDefault()
 //         const newuser = {Fullname , age };
 //         console.log(newuser)
 //     }
-
-
 
 // //javas...
 //   return (
@@ -118,7 +117,7 @@ export default Create
 //         <form action="" onSubmit={submitHandler}>
 
 //             <input onChange={Fullchange} value={Fullname} type="text" placeholder="Full name" />
-//             <input onChange={agechange} value={age}       type="number" placeholder="Age" />  
+//             <input onChange={agechange} value={age}       type="number" placeholder="Age" />
 
 //         <button>Submit</button>
 //         </form>

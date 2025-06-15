@@ -1,6 +1,7 @@
 // import React, { captureOwnerStack } from 'react'
-import { Fragment ,useState } from "react";
+import { Fragment , useState } from "react";
 import Create from "./components/Create";
+import Read from "./components/Read";
 
 
 const App = () => {
@@ -8,12 +9,22 @@ const App = () => {
   const [gender, setgenter] = useState("male")
   console.log(gender)
 
+  const [todos, settodos] = useState([
+    {id : 1 , title:" chal kam kar" , isCompleted:false},
+  ])
+
+  console.log(todos)
 
   // javas...
   return (
     <Fragment>
-      <Create genter={gender} setgenter={setgenter} 
-        />
+      
+      {/* <Create  /> */}
+
+      <Create gender={gender} setgenter={setgenter}  todos={todos} settodos={settodos} />
+
+      <Read todos={todos} settodos={settodos} />
+
       {/* <Create title={title} settitle={settitle}  /> */}
   
     </Fragment>

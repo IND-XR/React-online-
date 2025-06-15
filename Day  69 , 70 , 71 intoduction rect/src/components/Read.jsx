@@ -17,7 +17,7 @@ const Read = (props) => {
     <div>
       <hr />
       <h1 style={{color :"tomato"}}>Pending Todos</h1>
-      <ol>{rendertodos}</ol>
+      <ol> {rendertodos} </ol>
       
     </div>
   )
