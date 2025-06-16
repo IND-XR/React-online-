@@ -22,9 +22,8 @@ const Create = (props) => {
     title,
     isCompleted:false,
   };
-  
-  console.log(newtodo);
 
+  console.log(newtodo);
 
   let copytodos = [...(todos || [])] ;
   copytodos.push(newtodo)
@@ -51,8 +50,6 @@ const Create = (props) => {
           id=""
           
         />
-
-        
 
         <button>Create</button>
 

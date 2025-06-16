@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {nanoid} from "nanoid";
 
-const Create =(props) => {
+const Create = (props) => {
     const todos = props.todos
     const settodos = props.settodos
 
