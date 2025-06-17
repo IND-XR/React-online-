@@ -8,10 +8,7 @@ const Read = (props) => {
       const filtedtodo = todos.filter((todos) => todos.id != id)
       settodos(filtedtodo)
       console.log(id)
-
     }
-
-
 
 
     const rendertodos = todos.map((todo) =>{
