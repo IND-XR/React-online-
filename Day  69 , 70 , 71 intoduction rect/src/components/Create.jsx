@@ -31,11 +31,13 @@ const Create = (props) => {
 
     //javas..
   return (
-    <div>
+     <div className=" w-[70%] p-10"> 
         <br />
-        <h1> Create takes</h1>
+        <h1 className="mb-10 text-5xl font-thin" > 
+          Set <span className="text-red-400" > Create </span> takes</h1>
         <form action=""  onSubmit={submitHandler}>
         <input
+        className="p-2 border-b w-full text-2xl font-thin outline-0"
           onChange={(e) => settitle(e.target.value)}
           value={title}
           type="text"
@@ -44,7 +46,7 @@ const Create = (props) => {
           id=""
         /> 
 
-        <button>Create</button>
+        <button className="mt-5 text-xl px-10 py-2 border rounded" >Create</button>
       </form>
     </div>
   )

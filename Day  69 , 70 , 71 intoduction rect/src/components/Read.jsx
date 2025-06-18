@@ -1,6 +1,9 @@
 import React from 'react'
+import style from "./Read.module.css"
 
 const Read = (props) => {
+
+  console.log(style)
     const todos = props.todos
     const settodos = props.settodos
 
@@ -12,19 +15,25 @@ const Read = (props) => {
 
 
     const rendertodos = todos.map((todo) =>{
+
+
     return(
-      <li style={{color:todo.isCompleted ? "green" : "tomato"}} key={todo.id}>
-        <p> title :{todo.title} | <span onClick={ () => DeleteHandler(todo.id)} > Delete </span> </p>
+      <li key={todo.id} className=' mb-2 flex justify-between items-center p-3 bg-gray-900'  >
+        <span className="text-xl font-thin"> • {todo.title} </span>
+        <button className=" text-red-400 text-sm  " onClick={ () => DeleteHandler(todo.id) } > &nbsp; &nbsp; Delete </button>
       </li>
     );
   });
 
-    
-    //javas...
+  
+  //javas...
+
+  // const x = { color: "pink"};
+
   return (
-    <div>
+    <div className="w-[40%] p-10">
       <hr />
-      <h1 style={{color :"tomato"}}>Pending Todos</h1>
+      <h1 className="mb-10 text-5xl font-thin"> <span className='text-orange-400' >Pending</span>Todos</h1>
       <ol> {rendertodos} </ol>
       
     </div>
