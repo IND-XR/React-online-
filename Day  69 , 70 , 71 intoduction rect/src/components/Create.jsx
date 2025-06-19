@@ -11,9 +11,9 @@ const Create = (props) => {
     const submitHandler = (e) =>{
     e.preventDefault();
 
-    const newtodo = {
+    const newtodo = { 
       id: nanoid(),
-      title,
+      title ,
       isCompleted:false,
     };
     console.log(newtodo);
