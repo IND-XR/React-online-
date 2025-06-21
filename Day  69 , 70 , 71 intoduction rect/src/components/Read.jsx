@@ -15,12 +15,31 @@ const Read = (props) => {
     const completeHandler = (id) => {
     const updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
-        return { ...todo, isCompleted: !todo.isCompleted };
+        return {...todo, isCompleted: !todo.isCompleted};
       }
       return todo;
     });
     settodos(updatedTodos);
   };
+
+
+
+//   const completeHandler = (id) => {
+//   const updatedTodos = [];
+
+//   for (let todo of todos) {
+//     if (todo.id === id) {
+//       updatedTodos.push({
+//         ...todo,
+//         isCompleted: !todo.isCompleted,
+//       });
+//     } else {
+//       updatedTodos.push(todo);
+//     }
+//   }
+
+//   settodos(updatedTodos);
+// };
 
   const rendertodos = todos.map((todo) => {
     return (
@@ -29,16 +48,11 @@ const Read = (props) => {
         className=" mb-2 flex justify-between items-center p-3 bg-gray-900"
 >
         <span
-          className="text-xl font-thin" style={{
-            textDecoration: todo.isCompleted ? "underline" : "none",
-            color: todo.isCompleted ? "gray" : "white",
-          }}  > • {todo.title}
+          className="text-xl font-thin" style={{ textDecoration: todo.isCompleted ? "underline" : "none", color:todo.isCompleted ? "gray" : "white" }} > • {todo.title}
         </span>
 
         <button className=" text-red-400 text-sm" onClick={() => DeleteHandler(todo.id)} > &nbsp; &nbsp; Delete </button> 
         <button onClick={()=>{completeHandler(todo.id)}}> Complete</button>
-        
-
 
       </li>
     );

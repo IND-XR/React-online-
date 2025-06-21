@@ -14,10 +14,24 @@ const Read = (props) =>{
 
   console.log(todos)
 
+  const completeHandlar=(id)=>{
+    const update = todos.map((todo)=>{
+      if(todo.id === id){
+        return {...todo, isCompleted: !todo.isCompleted}
+      }
+      return todo;
+    })
+    settodos(update)
+    }
+  
+
+
   const rendertodos = todos.map((todo)=>{
-    return(
+   return(
       <li key={todo.id}>
-        <p>title:{todo.title} || <span onClick={ () => deletehandlar(todo.id)} > Delete </span> </p>
+        <span style = {{ textDecoration : todo.isCompleted ? "underline" : "none", color:todo.isCompleted ? "gray" : "red" } } > • {todo.title} </span>
+        <button onClick={()=>deletehandlar(todo.id)}>     Delete </button>
+        <button onClick={()=>completeHandlar(todo.id)}> Complete </button>      
       </li>
     )
   })
@@ -25,13 +39,13 @@ const Read = (props) =>{
 
   //javas...
   return (
-    <div>
+    <div className="w-[40%] p-10" >
       <hr />
-      <h1> Peading Todos </h1>
+      <h1 className="mb-10 text-5xl font-thin" >
+         <span className="text-orange-400">Pending</span>Todos </h1>
 
       <ol>{rendertodos}</ol>
 
-      <br />
       <br />
       <hr />
     </div>
