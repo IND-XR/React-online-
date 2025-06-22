@@ -12,7 +12,7 @@ const Read = (props) => {
     console.log(id);
   };
 
-    const completeHandler = (id) => {
+  const completeHandler = (id) => {
     const updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
         return {...todo, isCompleted: !todo.isCompleted};
@@ -52,8 +52,7 @@ const Read = (props) => {
         </span>
 
         <button className=" text-red-400 text-sm" onClick={() => DeleteHandler(todo.id)} > &nbsp; &nbsp; Delete </button> 
-        <button onClick={()=>{completeHandler(todo.id)}}> Complete</button>
-
+        <button onClick={()=>{completeHandler(todo.id)}}> Complete </button>
       </li>
     );
   });
