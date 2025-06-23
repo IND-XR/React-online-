@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import {nanoid} from "nanoid";
+import { useForm } from "react-hook-form"
 
 const Create = (props) => {
   const gender = props.gender;
@@ -8,28 +9,46 @@ const Create = (props) => {
   const settodos = props.settodos;
 
   
-  const [title, settitle] = useState("");
+  // const [title, settitle] = useState("");
 
-  console.log(title);
+  // console.log(title);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState:{errors},
+  } = useForm();
 
 
-  const submitHandler = (e) => {
-    e.preventDefault();
+
+  const submitHandler = (data) => {
+    data.id = nanoid(),
+    data.isCompleted = false;
+    // data.title 
+    
+
+    const copytodos = [...todos];
+    copytodos.push(data)
+    settodos(copytodos)
+
+    reset();
+    // e.preventDefault();
 
 
-  const newtodo = {
-    id : nanoid(), 
-    title,
-    isCompleted:false,
-  };
+//   const newtodo = {
+//     id : nanoid(), 
+//     title,
+//     isCompleted:false,
+//   };
 
-  console.log(newtodo);
+//   console.log(newtodo);
 
-  let copytodos = [...(todos || [])] ;
-  copytodos.push(newtodo)
-  settodos(copytodos);
+//   let copytodos = [...(todos || [])] ;
+//   copytodos.push(newtodo)
+//   settodos(copytodos);
 
-  settitle("");
+//   settitle("");
   
 };
 
@@ -39,17 +58,20 @@ const Create = (props) => {
   return (
     <div>
       <h1> Create a Takes </h1>
-      <form action="" onSubmit={submitHandler}>
+      <form action="" onSubmit={handleSubmit(submitHandler)}>
 
         <input
-          onChange={(e) => settitle(e.target.value)}
-          value={title}
+         {...register("title",{required :"title can not be empty",})}
+          // onChange={(e) => settitle(e.target.value)}
+          // value={title}
           type="text"
           placeholder="Takes"
-          name=""
-          id=""
+          // name=""
+          // id=""
           
         />
+        {/* {errors && errors.title && errors.title.message && <small>{errors.title.message}</small> } */}
+        <small className="font-thin text-red-400">{errors?.title?.message}</small>
 
         <button>Create</button>
 
