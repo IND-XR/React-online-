@@ -1,6 +1,7 @@
 // import { useState } from "react";
 import {nanoid} from "nanoid";
 import { useForm } from "react-hook-form"
+import { toast } from "react-toastify"
 
 const Create = (props) => {
     const todos = props.todos
@@ -26,6 +27,8 @@ const Create = (props) => {
       const copytodos = [...todos];
       copytodos.push(data)
       settodos(copytodos)
+
+      toast.success("todo Create ")
 
       reset();
 

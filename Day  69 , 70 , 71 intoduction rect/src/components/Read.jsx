@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./Read.module.css";
+import { toast } from "react-toastify";
 
 const Read = (props) => {
   console.log(style);
@@ -10,6 +11,7 @@ const Read = (props) => {
     const filtedtodo = todos.filter((todos) => todos.id != id);
     settodos(filtedtodo);
     console.log(id);
+    toast.error("todo is Deleted")
   };
 
   const completeHandler = (id) => {
@@ -19,10 +21,10 @@ const Read = (props) => {
       }
       return todo;
     });
+    toast.info("todo is completed")
     settodos(updatedTodos);
   };
-
-
+  
 
 //   const completeHandler = (id) => {
 //   const updatedTodos = [];
