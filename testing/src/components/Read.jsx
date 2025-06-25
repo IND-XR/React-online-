@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useContext } from 'react'
+// import { todoContent } from '../Wrapper'
 // import { Fragment ,useState } from "react";
 
+import { todocontent } from "../Wrapper";
+
+
 const Read = (props) =>{
+  
+  const s = useContext(todocontent);
+  console.log(s)
+  // const s = useContext(todoContent);
+  // console.log(s)
+
+
   const todos = props.todos
   const settodos = props.settodos
+
+  
+
+  
+
+
+
 
   
   const deletehandlar = (id) =>{

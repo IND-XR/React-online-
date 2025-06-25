@@ -6,7 +6,11 @@ import Wrapper from './Wrapper.jsx'
 
 createRoot(document.getElementById('root')).render(
 
-  <Wrapper App={<App/>} />
+  // <Wrapper App={<App/>} />
+  <Wrapper>
+    <h1>every</h1>
+    {/* <App/> */}
+  </Wrapper>
 
   // wa
 
