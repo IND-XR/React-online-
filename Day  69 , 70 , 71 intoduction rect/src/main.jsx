@@ -8,8 +8,14 @@ import Wrapper from "./Wrapper.jsx";
 
 
 createRoot(document.getElementById('root')).render( 
+  <Wrapper> 
+    {/* <h1> every one </h1> */}
+    <ToastContainer position="top-center" />
+     <App/>
+  </Wrapper>
+  // <Wrapper/>
 
-  <Wrapper App={ <App/> } info={"hello"}/>
+  // <Wrapper App={ <App/> } info={"hello"}/>
 
   // <wrapper>
 

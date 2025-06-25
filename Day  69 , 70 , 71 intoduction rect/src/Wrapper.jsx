@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { createContext } from 'react'
+
+export const todocontent = createContext(null);
 
 const Wrapper = (props) => {
     console.log(props);
-  return (
-    <>
-    {props.App}
-    </>
+  return ( 
+     <todocontent.Provider value={"hello from HOC Content"} > {props.children} </todocontent.Provider>
+
+    // <div>hello
+    //   {props.children}
+    // </div>
+    // <>
+    
+    // {props.App}
+    // </>
     
   )
 };

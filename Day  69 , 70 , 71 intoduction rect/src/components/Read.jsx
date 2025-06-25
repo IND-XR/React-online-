@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "./Read.module.css";
 import { toast } from "react-toastify";
+import { todocontent } from "../Wrapper";
 
 const Read = (props) => {
+
+  const s = useContext(todocontent);
+  console.log(s)
+
+
+
   console.log(style);
   const todos = props.todos;
   const settodos = props.settodos;
