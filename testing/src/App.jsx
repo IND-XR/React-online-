@@ -6,33 +6,34 @@ import Read from "./components/Read";
 
 const App = () => {
   
-  const [gender, setgenter] = useState("male")
-  console.log(gender)
+  // const [gender, setgenter] = useState("male")
+  // console.log(gender)
 
-  const [todos, settodos] = useState([
-    {id : 1 , title:" chal kam kar" , isCompleted:false},
-  ])
-
-  console.log(todos)
+  
+  // console.log(todos)
 
   // javas...
   return (
-    <Fragment>
-      
-      {/* <Create  /> */}
+    <div>
+      <Create/>
+      <Read/>
 
-      <Create gender={gender} setgenter={setgenter}  todos={todos} settodos={settodos} />
-
-      <Read todos={todos} settodos={settodos} />
-
-      {/* <Create title={title} settitle={settitle}  /> */}
+    </div>
   
-    </Fragment>
-
   );
 };
 export default App
 
+ // <Fragment>
+      
+
+      {/* <Create gender={gender} setgenter={setgenter}  todos={todos} settodos={settodos} />
+
+      <Read todos={todos} settodos={settodos} /> */}
+
+      {/* <Create title={title} settitle={settitle}  /> */}
+  
+    // </Fragment>
 
 
 

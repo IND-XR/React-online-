@@ -5,25 +5,20 @@ import React, { useContext } from 'react'
 import { todocontent } from "../Wrapper";
 
 
-const Read = (props) =>{
+const Read = () =>{
   
-  const s = useContext(todocontent);
-  console.log(s)
+  const [todos, settodos ] = useContext(todocontent);
+    // const [gender, setgenter]  = useContext(todocontent)
+
+  // console.log(s)
   // const s = useContext(todoContent);
   // console.log(s)
 
 
-  const todos = props.todos
-  const settodos = props.settodos
+  // const todos = props.todos
+  // const settodos = props.settodos
 
-  
-
-  
-
-
-
-
-  
+ 
   const deletehandlar = (id) =>{
     const filtedtods = todos.filter((todos)=>todos.id != id)
     settodos(filtedtods)

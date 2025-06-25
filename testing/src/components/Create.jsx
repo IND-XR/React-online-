@@ -1,12 +1,17 @@
 // import React, { useState } from "react";
 import {nanoid} from "nanoid";
+import { useContext } from "react";
 import { useForm } from "react-hook-form"
+import { todocontent } from "../Wrapper";
 
-const Create = (props) => {
-  const gender = props.gender;
-  const setgenter = props.setgenter;
-  const todos = props.todos;
-  const settodos = props.settodos;
+const Create = () => {
+  const [todos, settodos]  = useContext(todocontent);
+    // const  [gender, setgenter]  = useContext(todocontent)
+
+  // const gender = props.gender;
+  // const setgenter = props.setgenter;
+  // const todos = props.todos;
+  // const settodos = props.settodos;
 
   
   // const [title, settitle] = useState("");
@@ -20,8 +25,6 @@ const Create = (props) => {
     formState:{errors},
   } = useForm();
 
-
-
   const submitHandler = (data) => {
     data.id = nanoid(),
     data.isCompleted = false;
@@ -32,6 +35,7 @@ const Create = (props) => {
     copytodos.push(data)
     settodos(copytodos)
 
+      
     reset();
     // e.preventDefault();
 
@@ -79,7 +83,7 @@ const Create = (props) => {
 
         <h1>Male or female</h1>
 
-        <input
+        {/* <input
           value="male"
           type="radio"
           onChange={(e) => { setgenter(e.target.value); }}
@@ -91,7 +95,7 @@ const Create = (props) => {
           value="Female"
           type="radio"
           checked={gender == "Female" && true}
-        />{" "} Feamle
+        />{" "} Feamle */}
 
       </form>
     </div>
