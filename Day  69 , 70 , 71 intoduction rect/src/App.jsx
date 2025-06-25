@@ -1,22 +1,22 @@
-import { Fragment, useState } from "react";
+import { Fragment , useState } from "react";
 import Create from "./components/Create";
 import Read from "./components/Read";
 
 
 const App = () => {
-  const [todos, settodos] = useState([
+  // const [todos, settodos] = useState([
 
-    { id: 1, title: "Kam Krle bahi", isCompleted: false },
+  //   { id: 1, title: "Kam Krle bahi", isCompleted: false },
 
-  ]);
+  // ]);
   // console.log(title);
-  console.log(todos);
+  // console.log(todos);
 
   //javas..
   return (
     <div className="text-white flex w-screen h-screen bg-gray-800 p-10">
-      <Create todos={todos} settodos={settodos}/>
-      <Read todos={todos} settodos={settodos}/>
+      <Create /> {/* todos={todos} settodos={settodos} */}
+       <Read/> {/* todos={todos} settodos={settodos} */}
     </div>
    
   );

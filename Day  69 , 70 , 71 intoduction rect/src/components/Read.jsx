@@ -3,16 +3,14 @@ import style from "./Read.module.css";
 import { toast } from "react-toastify";
 import { todocontent } from "../Wrapper";
 
-const Read = (props) => {
+const Read = () => {
 
-  const s = useContext(todocontent);
-  console.log(s)
-
-
+  const [todos, settodos] = useContext(todocontent);   {/* 6 step :  using from Wrapper  */}
+  // console.log(s)
 
   console.log(style);
-  const todos = props.todos;
-  const settodos = props.settodos;
+  // const todos = props.todos;
+  // const settodos = props.settodos;
 
   const DeleteHandler = (id) => {
     const filtedtodo = todos.filter((todos) => todos.id != id);
