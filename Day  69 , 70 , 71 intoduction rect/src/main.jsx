@@ -10,7 +10,7 @@ import Wrapper from "./Wrapper.jsx";
 createRoot(document.getElementById('root')).render( 
   <Wrapper> 
     {/* <h1> every one </h1> */}
-    <ToastContainer position="top-center" />
+    <ToastContainer position="top-center" />        {/* 1 step   */}
      <App/>
   </Wrapper>
   // <Wrapper/>

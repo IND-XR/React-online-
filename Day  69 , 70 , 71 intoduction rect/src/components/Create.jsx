@@ -6,7 +6,7 @@ import { toast } from "react-toastify"
 import { todocontent } from "../Wrapper";
 
 const Create = () => {
-  const [todos, settodos] = useContext(todocontent);
+  const [todos, settodos] = useContext(todocontent);   {/* 6 step :  using from Wrapper  */}
     // const todos = props.todos
     // const settodos = props.settodos;
     
