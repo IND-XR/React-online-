@@ -12,8 +12,6 @@ const Wrapper = (props) => {
    const [gender, setgenter] = useState("male")
   console.log(gender)
 
-
-
   return (
     <todocontent.Provider value={ [todos, settodos]   } > {props.children} </todocontent.Provider>
   )

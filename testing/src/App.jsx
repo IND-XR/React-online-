@@ -2,6 +2,10 @@
 import { Fragment , useState } from "react";
 import Create from "./components/Create";
 import Read from "./components/Read";
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Nav from './components/Nav'
 
 
 const App = () => {
@@ -9,17 +13,22 @@ const App = () => {
   // const [gender, setgenter] = useState("male")
   // console.log(gender)
 
-  
   // console.log(todos)
 
   // javas...
   return (
     <div>
-      <Create/>
-      <Read/>
-
+      <Nav/>
+      {/* <Create/>
+      <Read/> */}
+      <Routes>
+        <Route path="/" element = {  <Home/> }/>
+        {/* <Route path="/" element = { <Create/> }/> */}
+        {/* <Route path="/Product" element ={<Product/>}/> */}
+        <Route path="/About" element ={<About/>}/>
+      </Routes>
+     
     </div>
-  
   );
 };
 export default App
