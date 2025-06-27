@@ -1,7 +1,12 @@
 import { Fragment , useState } from "react";
 import Create from "./components/Create";
 import Read from "./components/Read";
-
+import Nav from "./components/Nav";
+import { Route,  Routes } from 'react-router-dom'
+import Server from "./components/Server";
+import Product from "./components/Product";
+import About from "./components/About";
+import Home from "./components/Home";
 
 const App = () => {
   // const [todos, settodos] = useState([
@@ -14,9 +19,21 @@ const App = () => {
 
   //javas..
   return (
+
     <div className="text-white flex w-screen h-screen bg-gray-800 p-10">
-      <Create /> {/* todos={todos} settodos={settodos} */}
-       <Read/> {/* todos={todos} settodos={settodos} */}
+      <Nav/>
+      
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/About" element={<About/>}/>
+        <Route path="/Product" element={<Product/>}/>
+        <Route path="/Server" element={<Server/>}/>
+      </Routes>
+      <Create />
+       <Read/>
+
+       {/* todos={todos} settodos={settodos} */}
+       {/* todos={todos} settodos={settodos} */}
     </div>
    
   );
