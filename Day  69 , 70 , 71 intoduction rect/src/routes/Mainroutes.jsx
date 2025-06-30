@@ -3,6 +3,7 @@ import Home from '../components/Home'
 import About from '../components/About'
 import Product from '../components/Product'
 import Server from '../components/Server'
+import ProductDetails from '../components/ProductDetails'
 
 
 const mainroutes = () => {
@@ -12,6 +13,7 @@ const mainroutes = () => {
         <Route path="/" element={<Home />}/>
         <Route path="/About" element={<About />}/>
         <Route path="/Product" element={<Product/>}/>
+        <Route path="/Product/detail/:name" element={<ProductDetails/>}/>
         <Route path="/Server" element={<Server/>}/>
       </Routes>
     </div>
