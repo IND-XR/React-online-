@@ -7,7 +7,7 @@ const Nav = () => {
     <div className='text-white flex justify-center gap-10 p-5'>  
        <NavLink className={(e)=> (e.isActive ? "text-red-300": " ")} to='/'>Home </NavLink>
        <NavLink className={(e)=> (e.isActive ? "text-red-300": " ")} to='/product'> Product </NavLink>
-       <NavLink className={(e)=> (e.isActive ? "text-red-300": " ")} to='/Server'> Server </NavLink>
+       <NavLink className={(e)=> (e.isActive ? "text-red-300": " ")} to='/Service'> Server </NavLink>
        <NavLink className={(e)=> (e.isActive ? "text-red-300": " ")} to='/About'> About </NavLink>
     </div>
   )
