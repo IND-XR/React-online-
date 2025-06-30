@@ -5,6 +5,7 @@ import Product from '../components/Product'
 import Service from '../components/Service'
 import ProductDetails from '../components/ProductDetails'
 import ServiceDetails from '../components/ServiceDetails'
+import Serviceupdate from '../components/Serviceupdate'
 
 
 const mainroutes = () => {
@@ -15,8 +16,12 @@ const mainroutes = () => {
         <Route path="/about" element={<About />}/>
         <Route path="/Product" element={<Product/>}/>
         <Route path="/Product/detail/:name" element={<ProductDetails/>}/>
-        <Route path="/service" element={<Service/>}/>
-        <Route path="/service/detail" element={<ServiceDetails/>}/>
+        
+        <Route path="/service" element={<Service/>}> 
+              <Route path="/service/detail" element={<ServiceDetails/>}/>
+              <Route path="/service/update" element={<Serviceupdate/>}/>
+        </Route>
+
       </Routes>
     </div>
   )
