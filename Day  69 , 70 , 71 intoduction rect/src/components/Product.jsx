@@ -11,6 +11,7 @@ const Product = () => {
 
   return (
     <div>
+      
       <h1 className='text-5x1 front-thin mb-5'> Products </h1>
       <div className='mb-10'>
         <h1 className='text-3xl font-thin mb-3  '> Product 1 </h1>

@@ -7,7 +7,6 @@ import ProductDetails from '../components/ProductDetails'
 import ServiceDetails from '../components/ServiceDetails'
 import Serviceupdate from '../components/Serviceupdate'
 
-
 const mainroutes = () => {
   return (
     <div className="absolute px-[10%]">
