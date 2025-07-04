@@ -1,17 +1,15 @@
-import { Fragment , useState } from "react";
-import Nav from "./components/Nav";
-import Mainroutes from "./routes/mainroutes";
+import React from 'react'
+import Mainroutes from './routes/Mainroutes.jsx'
+import Navbar from './Components/Navbar.jsx'
+
 
 const App = () => {
-
-  //javas..
   return (
-
-    <div className="relative text-white  bg-gray-800 w-screen h-screen">      
-      <Nav/>
-      <Mainroutes/> 
+    <div className=' py-10 px-[10%] w-screen h-screen text-white font-thin bg-gray-800'>
+      <Navbar/>
+      <Mainroutes/>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
