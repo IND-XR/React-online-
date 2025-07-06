@@ -15,6 +15,7 @@ const RecipeContext = (props) => {
     "Olive oil",
     "Salt and pepper to taste"
   ],
+
   "instructions": [
     "Preheat the oven to 475°F (245°C).",
     "Roll out the pizza dough and spread tomato sauce evenly.",
@@ -26,7 +27,7 @@ const RecipeContext = (props) => {
   
   "image": "https://cdn.dummyjson.com/recipe-images/1.webp",
    chef : "pankaj chamol",
-   category: "Dinner",
+   category: "dinner",
    desc :     "Roll out the pizza dough and spread tomato sauce evenly.",
 
 }
