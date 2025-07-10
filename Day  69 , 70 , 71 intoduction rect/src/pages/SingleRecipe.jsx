@@ -201,6 +201,5 @@ export default SingleRecipe;
 
 //       // setdata([...data,recipe]) // wite in one line
 //       // console.log(data);
-
-//       reset()
-//       navigate("/recipes")
+      // reset()
+      // navigate("/recipes")
