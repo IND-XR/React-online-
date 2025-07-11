@@ -198,7 +198,6 @@ export default SingleRecipe;
 //       setdata(copydata);
 
 //       toast.success("New recipe created")
-
 //       // setdata([...data,recipe]) // wite in one line
 //       // console.log(data);
       // reset()
