@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { recipecontext } from "../context/RecipeContext";
 import Create from "./Create";
@@ -60,6 +60,15 @@ const SingleRecipe = () => {
     toast.success("recipe Deletes");
     navigate("/recipes");
   };
+
+  //  useEffect(()=>{
+  //     console.log("SingleRecipe.jsx Mounted");
+
+  //     return ( ) =>{
+  //       console.log("SingleRecipe.jsx UnMounted")
+  //     }
+  //   },[])  // [] square brackets bewajah update ko rok ta hai 
+  
 
   return recipe ? (
     <div className="w-full flex">

@@ -16,15 +16,20 @@ const Home = () => {
     }
   }
 
-  useEffect(()=>{
-    console.log("Home.jsx Mounted");
+  // useEffect(()=>{
+  //   console.log("Home.jsx Mounted");
 
+  //   getproduct();
+
+  //   return ( ) =>{
+  //     console.log("Home.jsx UnMounted")
+  //   }
+  // })
+
+   useEffect(()=>{
     getproduct();
+  },[]);
 
-    return ( ) =>{
-      console.log("Home.jsx UnMounted")
-    }
-  })
 
   return (
     <div>
