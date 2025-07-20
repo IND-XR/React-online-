@@ -24,24 +24,26 @@ const SingleRecipe = () => {
     formState: { errors }, // for finding error sab error yah mileange
   } = useForm({
     defaultValues: {
-      title: recipe.titile,
-      chef: recipe.chef,
-      image: recipe.image,
-      inst: recipe.inst,
-      desc: recipe.desc,
-      inger: recipe.inger,
+      title: recipe?.titile,
+      chef: recipe?.chef,
+      image: recipe?.image,
+      inst: recipe?.inst,
+      desc: recipe?.desc,
+      inger: recipe?.inger,
     },
   });
 
-  const SubmitHandler = (recipe) => {
+  const UpdateHandler = (recipe) => {
     //Updateing
     const index = data.findIndex((recipe) => (params.id = recipe.id)); // find frist id
     const copydata = [...data];
 
     copydata[index] = { ...copydata[index], ...recipe };
     // console.log( copydata[index])
-
     setdata(copydata);
+
+    localStorage.setItem("recipes",JSON.stringify(copydata));  //jabhi ham ko data ok convert jarna hota hai jsob to string ham yah use karte hai 
+
     toast.success("recipe update");
   };
 
@@ -56,6 +58,8 @@ const SingleRecipe = () => {
   const DeleteHander = () => {
     const filerdata = data.filter((r) => r.id !== params.id);
     setdata(filerdata);
+
+    localStorage.setItem("recipes",JSON.stringify(filerdata));  //jabhi ham ko data ok convert jarna hota hai jsob to string ham yah use karte hai 
 
     toast.success("recipe Deletes");
     navigate("/recipes");
@@ -83,7 +87,7 @@ const SingleRecipe = () => {
       <form
         className="w-1/2 right p-2"
         action=""
-        onSubmit={handleSubmit(SubmitHandler)}
+        onSubmit={handleSubmit(UpdateHandler)}
       >
         {/* //image */}
 

@@ -24,13 +24,17 @@ const Create = () => {
     recipe.id = nanoid();
      console.log(recipe);
 
+   
     const copydata = [...(data || [])];
     copydata.push(recipe);
     setdata(copydata);
 
-    toast.success("New recipe created")
+    localStorage.setItem("recipes",JSON.stringify(copydata));  //jabhi ham ko data ok convert jarna hota hai jsob to string ham yah use karte hai 
+
 
     // setdata([...data,recipe]) // wite in one line
+
+    toast.success("New recipe created")
 
 
 
