@@ -8,6 +8,9 @@ const Navbar = () => {
         <NavLink className={(e)=>e.isActive ? "text-red-300" :"" } to="/Recipes"> Recipes </NavLink>
         <NavLink className={(e)=>e.isActive ? "text-red-300" :"" } to="/About"> About </NavLink>
         <NavLink className={`px-4 py-2 bg-gray-900 rounded-2xl $(e)=>e.isActive ? "text-red-300" :""`} to="/Create"> Create Recipe </NavLink>
+
+        <NavLink className={(e)=>e.isActive ? "text-red-300" :"" } to="/fav"> Favroite </NavLink>
+
     </div>
   )
 }
