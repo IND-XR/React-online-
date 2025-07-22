@@ -80,7 +80,7 @@ const SingleRecipe = () => {
      localStorage.setItem("fav", JSON.stringify(favroite)); // Checkin if local storage 
   };
 
-  const UnFavHandler = () =>{
+  const UnFavHandler = () =>{ 
     // const updatedFavs = favroite.filter(fav => fav.id !== recipe.id);
     // localStorage.setItem("fav", JSON.stringify(updatedFavs));
 
