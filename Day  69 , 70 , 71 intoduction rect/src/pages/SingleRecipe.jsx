@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { recipecontext } from "../context/RecipeContext";
 import Create from "./Create";
@@ -73,14 +73,21 @@ const SingleRecipe = () => {
   //     }
   //   },[])  // [] square brackets bewajah update ko rok ta hai 
 
-  const favroite = JSON.parse(localStorage.getItem("fav")) || []; // Checkin if local storage 
+
+
+  // const favorite = JSON.parse(localStorage.getItem("fav")) || []; // Checkin if local storage 
+const favorite = JSON.parse(localStorage.getItem("fav")) || [];
 
   const FavHandler = () => {
-     favroite.push(recipe);
-     localStorage.setItem("fav", JSON.stringify(favroite)); // Checkin if local storage 
-  };
+  favorite.push(recipe);
+  localStorage.setItem("fav", JSON.stringify(favorite));
+    //   //  favroite.push(recipe);
+  //   //  localStorage.setItem("fav", JSON.stringify(favroite)); // Checkin if local storage 
+};
 
   const UnFavHandler = () =>{ 
+  //    const updatedFavs = favorite.filter(fav => fav.id !== recipe.id);
+  // localStorage.setItem("fav", JSON.stringify(updatedFavs));
     // const updatedFavs = favroite.filter(fav => fav.id !== recipe.id);
     // localStorage.setItem("fav", JSON.stringify(updatedFavs));
 
@@ -91,13 +98,12 @@ const SingleRecipe = () => {
     <div className="w-full flex">
      
       <div className="relative left w-1/2 p-10">
-      {favroite.find(recipe) ? (
+      {favorite.find (fav => fav.id === recipe.id) ? (
         <i onClick={UnFavHandler} className="right-[5%] absolute text-3xl text-red-400 ri-heart-fill"></i>
        ) : ( <i onClick={FavHandler} className=" right-[5%] absolute text-3xl text-red-400 ri-heart-line"></i>)
  
  }
 
-        
         <h1 className="text-5xl font-black">{recipe.titile}</h1>
         <img className="h-[20vh]" src={recipe.image} alt="" />
         <h1>{recipe.chef}</h1>
@@ -235,3 +241,20 @@ export default SingleRecipe;
 //       // console.log(data);
       // reset()
       // navigate("/recipes")
+
+
+
+  //     return recipe ? (
+  // <div className="w-full flex">
+  //   <div className="relative left w-1/2 p-10">
+  //     {favorite.find(fav => fav.id === recipe.id) ? (
+  //       <i
+  //         onClick={UnFavHandler}
+  //         className="right-[5%] absolute text-3xl text-red-400 ri-heart-fill"
+  //       ></i>
+  //     ) : (
+  //       <i
+  //         onClick={FavHandler}
+  //         className="right-[5%] absolute text-3xl text-red-400 ri-heart-line"
+  //       ></i>
+  //     )}
