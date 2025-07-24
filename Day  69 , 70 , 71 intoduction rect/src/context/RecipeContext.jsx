@@ -8,7 +8,6 @@ const RecipeContext = (props) => {
     useEffect(()=>{
       // localStorage.getItem("recipe")
       setdata(JSON.parse(localStorage.getItem("recipes")) || [] );
-      
     },[])
 
   console.log(props)

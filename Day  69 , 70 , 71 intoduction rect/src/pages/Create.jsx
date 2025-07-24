@@ -35,11 +35,7 @@ const Create = () => {
     // setdata([...data,recipe]) // wite in one line
 
     toast.success("New recipe created")
-
-
-
     // console.log(data);
-
     reset()
     navigate("/recipes")
   }

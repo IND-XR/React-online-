@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { recipecontext } from "../context/RecipeContext";
 import Create from "./Create";
@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 // import { nanoid } from 'nanoid'
 import { toast } from "react-toastify";
+// import fav from "./Fav";
+
 
 const SingleRecipe = () => {
   const { data, setdata } = useContext(recipecontext);
@@ -14,17 +16,17 @@ const SingleRecipe = () => {
   const params = useParams();
   // console.log(data, params.id)
 
-  const recipe = data.find((recipe) => (params.id = recipe.id));
+  const recipe = data.find((recipe) => params.id == recipe.id);
   // console.log(recipe)
 
   const {
-    register, // use for two way  binding
-    handleSubmit, // is used for submission
-    // reset,    // from ko reset karne ke liye
-    formState: { errors }, // for finding error sab error yah mileange
+    register,           // use for two way  binding
+    handleSubmit,       // is used for submission
+    // reset,           // from ko reset karne ke liye
+    formState:{errors}, // for finding error sab error yah mileange
   } = useForm({
-    defaultValues: {
-      title: recipe?.titile,
+    defaultValues:{
+      title: recipe?.title, //  title: recipe?.titile,
       chef: recipe?.chef,
       image: recipe?.image,
       inst: recipe?.inst,
@@ -42,7 +44,7 @@ const SingleRecipe = () => {
     // console.log( copydata[index])
     setdata(copydata);
 
-    localStorage.setItem("recipes",JSON.stringify(copydata));  //jabhi ham ko data ok convert jarna hota hai jsob to string ham yah use karte hai 
+    localStorage.setItem("recipes", JSON.stringify(copydata)); //jabhi ham ko data ok convert jarna hota hai jsob to string ham yah use karte hai
 
     toast.success("recipe update");
   };
@@ -59,7 +61,7 @@ const SingleRecipe = () => {
     const filerdata = data.filter((r) => r.id !== params.id);
     setdata(filerdata);
 
-    localStorage.setItem("recipes",JSON.stringify(filerdata));  //jabhi ham ko data ok convert jarna hota hai jsob to string ham yah use karte hai 
+    localStorage.setItem("recipes", JSON.stringify(filerdata)); //jabhi ham ko data ok convert jarna hota hai jsob to string ham yah use karte hai
 
     toast.success("recipe Deletes");
     navigate("/recipes");
@@ -71,41 +73,85 @@ const SingleRecipe = () => {
   //     return ( ) =>{
   //       console.log("SingleRecipe.jsx UnMounted")
   //     }
-  //   },[])  // [] square brackets bewajah update ko rok ta hai 
+  //   },[])  // [] square brackets bewajah update ko rok ta hai
 
-
-
-  // const favorite = JSON.parse(localStorage.getItem("fav")) || []; // Checkin if local storage 
-const favorite = JSON.parse(localStorage.getItem("fav")) || [];
+  // ***************************************************************
+// let favroite = [];
+  // const favroite = JSON.parse(localStorage.getItem("fav")) || [] ; // Checkin if local storage
+  
+  // const[favroite,setfavorite ] = useState(
+  //   JSON.parse(localStorage.getItem("fav")) || [] 
+  // );
+  const [favroite, setfavorite] = useState(() => {
+  const stored = localStorage.getItem("fav");
+  try {
+    return stored ? JSON.parse(stored) : [];
+  } catch {
+    return [];
+    // console.log("notrun");
+  }
+});
 
   const FavHandler = () => {
-  favorite.push(recipe);
-  localStorage.setItem("fav", JSON.stringify(favorite));
-    //   //  favroite.push(recipe);
-  //   //  localStorage.setItem("fav", JSON.stringify(favroite)); // Checkin if local storage 
-};
-
-  const UnFavHandler = () =>{ 
-  //    const updatedFavs = favorite.filter(fav => fav.id !== recipe.id);
-  // localStorage.setItem("fav", JSON.stringify(updatedFavs));
-    // const updatedFavs = favroite.filter(fav => fav.id !== recipe.id);
-    // localStorage.setItem("fav", JSON.stringify(updatedFavs));
-
+    favroite.puch(recipe);
+    localStorage.setItem("fav",JSON.stringify())
+    console.log("hello")
+      // const updatedFav = [...favroite, recipe];
+  // setfavorite(updatedFav);
+  // localStorage.setItem("fav", JSON.stringify(updatedFav));
+  //    const updatedFav = [...favroite, recipe];
+  // setfavorite(updatedFav);
+  // localStorage.setItem("fav", JSON.stringify(updatedFav));
+  //  localStorage.setItem("fav", JSON.stringify(favroite.push(recipe)))
+  //   console.log(favroite,"hello like");
   };
 
+  const UnFavHandler = () => {
+  //     const updatedFav = favroite.filter((f) => f.id !== recipe.id);
+  // setfavorite(updatedFav);
+  // localStorage.setItem("fav", JSON.stringify());
+  //   console.log("hello unlike");
+  };
+
+  // const UnFavHandler = () =>{
+  //   const filterfav = favorite.filter((f)=>f.id != recipe?.id);
+  //   setfavorite(filterfav);
+
+  //   localStorage.setItem("fav",JSON.stringify(filterfav));
+
+  // };
 
   return recipe ? (
+    
     <div className="w-full flex">
-     
       <div className="relative left w-1/2 p-10">
-      {favorite.find (fav => fav.id === recipe.id) ? (
-        <i onClick={UnFavHandler} className="right-[5%] absolute text-3xl text-red-400 ri-heart-fill"></i>
-       ) : ( <i onClick={FavHandler} className=" right-[5%] absolute text-3xl text-red-400 ri-heart-line"></i>)
- 
- }
+      {/* <i
+            onClick={FavHandler}
+            className="right-[5%] absolute text-3xl text-red-400 ri-heart-fill"
+          ></i>
+        <i
+            onClick={UnFavHandler}
+            className="right-[5%] absolute text-3xl text-red-400 ri-heart-line"
+          ></i> */}
 
-        <h1 className="text-5xl font-black">{recipe.titile}</h1>
-        <img className="h-[20vh]" src={recipe.image} alt="" />
+      {Array.isArray(favroite) && favroite.find((r) => r.id === recipe.id) ? ( // favroite.find((r) => r.id === recipe.id) ?  ( // find(recipe) 
+          <i
+            onClick={FavHandler}
+            className="right-[5%] absolute text-3xl text-red-400 ri-heart-fill"
+          ></i>
+        ) : (
+          <i
+            onClick={UnFavHandler}
+            className="right-[5%] absolute text-3xl text-red-400 ri-heart-line"
+          ></i>
+        )}
+      
+       
+
+        <h1 className="text-5xl font-black">{recipe.title}</h1>
+        <img className="h-[20vh]" src={recipe.image && (
+  <img className="h-[20vh]" src={recipe.image} alt={recipe.title} />
+)} alt="" />
         <h1>{recipe.chef}</h1>
         <p>{recipe.desc}</p>
       </div>
@@ -239,22 +285,20 @@ export default SingleRecipe;
 //       toast.success("New recipe created")
 //       // setdata([...data,recipe]) // wite in one line
 //       // console.log(data);
-      // reset()
-      // navigate("/recipes")
+// reset()
+// navigate("/recipes")
 
-
-
-  //     return recipe ? (
-  // <div className="w-full flex">
-  //   <div className="relative left w-1/2 p-10">
-  //     {favorite.find(fav => fav.id === recipe.id) ? (
-  //       <i
-  //         onClick={UnFavHandler}
-  //         className="right-[5%] absolute text-3xl text-red-400 ri-heart-fill"
-  //       ></i>
-  //     ) : (
-  //       <i
-  //         onClick={FavHandler}
-  //         className="right-[5%] absolute text-3xl text-red-400 ri-heart-line"
-  //       ></i>
-  //     )}
+//     return recipe ? (
+// <div className="w-full flex">
+//   <div className="relative left w-1/2 p-10">
+//     {favorite.find(fav => fav.id === recipe.id) ? (
+//       <i
+//         onClick={UnFavHandler}
+//         className="right-[5%] absolute text-3xl text-red-400 ri-heart-fill"
+//       ></i>
+//     ) : (
+//       <i
+//         onClick={FavHandler}
+//         className="right-[5%] absolute text-3xl text-red-400 ri-heart-line"
+//       ></i>
+//     )}
