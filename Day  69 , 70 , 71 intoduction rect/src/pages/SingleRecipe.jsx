@@ -112,7 +112,6 @@ const SingleRecipe = () => {
   // localStorage.setItem("fav", JSON.stringify());
   //   console.log("hello unlike");
   };
-
   // const UnFavHandler = () =>{
   //   const filterfav = favorite.filter((f)=>f.id != recipe?.id);
   //   setfavorite(filterfav);
