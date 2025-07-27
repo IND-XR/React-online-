@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { recipecontext } from "../context/RecipeContext";
 import Create from "./Create";
@@ -7,7 +7,6 @@ import { useForm } from "react-hook-form";
 // import { nanoid } from 'nanoid'
 import { toast } from "react-toastify";
 // import fav from "./Fav";
-
 
 const SingleRecipe = () => {
   const { data, setdata } = useContext(recipecontext);
@@ -20,12 +19,12 @@ const SingleRecipe = () => {
   // console.log(recipe)
 
   const {
-    register,           // use for two way  binding
-    handleSubmit,       // is used for submission
+    register, // use for two way  binding
+    handleSubmit, // is used for submission
     // reset,           // from ko reset karne ke liye
-    formState:{errors}, // for finding error sab error yah mileange
+    formState: { errors }, // for finding error sab error yah mileange
   } = useForm({
-    defaultValues:{
+    defaultValues: {
       title: recipe?.title, //  title: recipe?.titile,
       chef: recipe?.chef,
       image: recipe?.image,
@@ -76,81 +75,66 @@ const SingleRecipe = () => {
   //   },[])  // [] square brackets bewajah update ko rok ta hai
 
   // ***************************************************************
-// let favroite = [];
-  // const favroite = JSON.parse(localStorage.getItem("fav")) || [] ; // Checkin if local storage
-  
-  // const[favroite,setfavorite ] = useState(
-  //   JSON.parse(localStorage.getItem("fav")) || [] 
-  // );
+
   const [favroite, setfavorite] = useState(() => {
-  const stored = localStorage.getItem("fav");
   try {
-    return stored ? JSON.parse(stored) : [];
+    const stored = localStorage.getItem("fav");
+    const parsed = stored ? JSON.parse(stored) : [];
+    return Array.isArray(parsed) ? parsed : [];
   } catch {
     return [];
-    // console.log("notrun");
   }
 });
 
   const FavHandler = () => {
-    favroite.puch(recipe);
-    localStorage.setItem("fav",JSON.stringify())
-    console.log("hello")
-      // const updatedFav = [...favroite, recipe];
-  // setfavorite(updatedFav);
-  // localStorage.setItem("fav", JSON.stringify(updatedFav));
-  //    const updatedFav = [...favroite, recipe];
-  // setfavorite(updatedFav);
-  // localStorage.setItem("fav", JSON.stringify(updatedFav));
-  //  localStorage.setItem("fav", JSON.stringify(favroite.push(recipe)))
-  //   console.log(favroite,"hello like");
-  };
+  if (Array.isArray(favroite) && favroite.some((f) => f.id === recipe?.id)) return;
+
+  const updatedFav = [...(Array.isArray(favroite) ? favroite : []), recipe];
+  setfavorite(updatedFav);
+  localStorage.setItem("fav", JSON.stringify(updatedFav));
+  console.log("hello like");
+};
 
   const UnFavHandler = () => {
-  //     const updatedFav = favroite.filter((f) => f.id !== recipe.id);
-  // setfavorite(updatedFav);
-  // localStorage.setItem("fav", JSON.stringify());
-  //   console.log("hello unlike");
+    const updatedFav = favroite.filter((f) => f.id !== recipe?.id);
+    setfavorite(updatedFav);
+    localStorage.setItem("fav", JSON.stringify(updatedFav));
+    console.log("hello unlike");
+
   };
-  // const UnFavHandler = () =>{
-  //   const filterfav = favorite.filter((f)=>f.id != recipe?.id);
-  //   setfavorite(filterfav);
-
-  //   localStorage.setItem("fav",JSON.stringify(filterfav));
-
-  // };
+  
+  // useEffect(()=>{
+  //   console.log("singkeRecipe.jsx mounted");
+  //   return()=>{
+  //     console.log("singlerecipe.jsx UnMount")
+  //   }
+  // },[favroite])  // matlab favorite main kaam hota hai tab kaam hona chiye
 
   return recipe ? (
-    
     <div className="w-full flex">
       <div className="relative left w-1/2 p-10">
-      {/* <i
-            onClick={FavHandler}
-            className="right-[5%] absolute text-3xl text-red-400 ri-heart-fill"
-          ></i>
-        <i
-            onClick={UnFavHandler}
-            className="right-[5%] absolute text-3xl text-red-400 ri-heart-line"
-          ></i> */}
-
-      {Array.isArray(favroite) && favroite.find((r) => r.id === recipe.id) ? ( // favroite.find((r) => r.id === recipe.id) ?  ( // find(recipe) 
+        {Array.isArray(favroite) && favroite.find((r) => r.id === recipe.id) ? ( // favroite.find((r) => r.id === recipe.id) ?  ( // find(recipe)
           <i
-            onClick={FavHandler}
+            onClick={UnFavHandler}
             className="right-[5%] absolute text-3xl text-red-400 ri-heart-fill"
           ></i>
         ) : (
           <i
-            onClick={UnFavHandler}
+            onClick={FavHandler}
             className="right-[5%] absolute text-3xl text-red-400 ri-heart-line"
           ></i>
         )}
-      
-       
 
         <h1 className="text-5xl font-black">{recipe.title}</h1>
-        <img className="h-[20vh]" src={recipe.image && (
-  <img className="h-[20vh]" src={recipe.image} alt={recipe.title} />
-)} alt="" />
+        <img
+          className="h-[20vh]"
+          src={
+            recipe.image && (
+              <img className="h-[20vh]" src={recipe.image} alt={recipe.title} />
+            )
+          }
+          alt=""
+        />
         <h1>{recipe.chef}</h1>
         <p>{recipe.desc}</p>
       </div>
