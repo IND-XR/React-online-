@@ -15,7 +15,7 @@ const Recipes = () => {
   <div className="flex flex-wrap">
     {renderrecipes}
     </div>
-    );
+  );
 };
 
 export default Recipes;

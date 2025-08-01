@@ -15,7 +15,7 @@ const SingleRecipe = () => {
   const params = useParams();
   // console.log(data, params.id)
 
-  const recipe = data.find((recipe) => params.id == recipe.id);
+  const recipe = data.findIndex((recipe) => params.id == recipe.id);
   // console.log(recipe)
 
   const {
@@ -78,6 +78,7 @@ const SingleRecipe = () => {
 
   const [favroite, setfavorite] = useState(() => {
   try {
+    JSON.parse(localStorage.getItem("fav")) || []
     const stored = localStorage.getItem("fav");
     const parsed = stored ? JSON.parse(stored) : [];
     return Array.isArray(parsed) ? parsed : [];
@@ -87,6 +88,10 @@ const SingleRecipe = () => {
 });
 
   const FavHandler = () => {
+    // let copyfav = [...favroite];
+    // copyfav.puch(recipe);
+    // setfavorite(copyfav);
+    // localStorage.setItem("fav",JSON.stringify(copyfav));
   if (Array.isArray(favroite) && favroite.some((f) => f.id === recipe?.id)) return;
 
   const updatedFav = [...(Array.isArray(favroite) ? favroite : []), recipe];
