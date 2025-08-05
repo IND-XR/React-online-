@@ -10,11 +10,9 @@ import { toast } from "react-toastify";
 
 const SingleRecipe = () => {
   const { data, setdata } = useContext(recipecontext);
-
   const navigate = useNavigate();
   const params = useParams();
   // console.log(data, params.id)
-
   const recipe = data.findIndex((recipe) => params.id == recipe.id);
   // console.log(recipe)
 
@@ -61,7 +59,7 @@ const SingleRecipe = () => {
     setdata(filerdata);
 
     localStorage.setItem("recipes", JSON.stringify(filerdata)); //jabhi ham ko data ok convert jarna hota hai jsob to string ham yah use karte hai
-
+    
     toast.success("recipe Deletes");
     navigate("/recipes");
   };
@@ -100,13 +98,12 @@ const SingleRecipe = () => {
   console.log("hello like");
 };
 
-  const UnFavHandler = () => {
+const UnFavHandler = () => {
     const updatedFav = favroite.filter((f) => f.id !== recipe?.id);
     setfavorite(updatedFav);
     localStorage.setItem("fav", JSON.stringify(updatedFav));
     console.log("hello unlike");
-
-  };
+};
   
   // useEffect(()=>{
   //   console.log("singkeRecipe.jsx mounted");

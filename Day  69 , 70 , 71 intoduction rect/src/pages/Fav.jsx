@@ -1,6 +1,3 @@
-import React, { useContext } from "react";
-// import { datacontext} from '../context/RecipeContext'
-// import { recipecontext } from "../context/RecipeContext";
 import RecipeCard from "../Components/RecipeCard";
 
 const Fav = () => {
@@ -15,7 +12,6 @@ const Fav = () => {
   console.log("Favori:", favorite);
   // console.log(renderrecipes)
 
-  //java
   return (
     <div className="flex flex-wrap">
       {favorite.length > 0 ? renderrecipes : "No favorite found!"}

@@ -44,7 +44,6 @@ const Create = () => {
     <form action="" onSubmit={handleSubmit(SubmitHandler)}>
 
 {/* //image */}
-
       <input className='block border-b outline-0 p-2'
         {...register("image")}
         type="url"
@@ -54,9 +53,7 @@ const Create = () => {
       {/* <small className='text-red-400'> This how the </small> */}
       <small className=' font-thin text-red-400'> {errors?.title?.message} This how the error show </small>
 
-
 {/* // title */}
-
       <input className='block border-b outline-0 p-2'
         {...register("titile")}
         type="text"
@@ -65,7 +62,6 @@ const Create = () => {
       <small className='text-red-400'> This how the </small>
 
 {/* // chef */}
-
       <input className='block border-b outline-0 p-2'
         {...register("chef")}
         type="text"
@@ -73,9 +69,7 @@ const Create = () => {
 
       <small className='text-red-400'> This how the </small>
 
-
 {/* // description */}
-
       <input className='block border-b outline-0 p-2'
         {...register("desc")}
         type="text"
@@ -83,10 +77,7 @@ const Create = () => {
 
       <small className='text-red-400'> This how the </small>
 
-
-
 {/* // description */}
-
       <textarea name="" id=""
         className='block border-b outline-0 p-2'
         {...register(" inger")}
