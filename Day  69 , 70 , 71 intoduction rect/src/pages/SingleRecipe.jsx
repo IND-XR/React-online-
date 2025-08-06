@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { recipecontext } from "../context/RecipeContext";
 import Create from "./Create";
@@ -59,7 +59,7 @@ const SingleRecipe = () => {
     setdata(filerdata);
 
     localStorage.setItem("recipes", JSON.stringify(filerdata)); //jabhi ham ko data ok convert jarna hota hai jsob to string ham yah use karte hai
-    
+
     toast.success("recipe Deletes");
     navigate("/recipes");
   };
