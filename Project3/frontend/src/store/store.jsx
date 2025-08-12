@@ -1,15 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
+import userSlice from "./userSlice"
 
-eslint-disable-next-line react-refresh/only-export-components
+// eslint-disable-next-line react-refresh/only-export-components
 export default configureStore({
-  reducer: {}
+  reducer: {
+    user:userSlice
+  }
 })
-
-// import { configureStore } from '@reduxjs/toolkit';
-// import counterReducer from '../features/counterSlice'; // example slice
-
-// export default configureStore({
-//   reducer: {
-//     // counter: counterReducer
-//   }
-// });
