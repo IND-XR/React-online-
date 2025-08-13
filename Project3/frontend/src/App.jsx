@@ -4,7 +4,6 @@ import { asyncgetusers } from './store/userAction'
 import { useSelector, useDispatch } from 'react-redux'
 
 const App = () => {
-
   const data  = useSelector((state) => state)
   const dispatch = useDispatch();
 
@@ -17,16 +16,16 @@ const App = () => {
   //     console.log(error);
   //   }
   // }
+
   console.log(data);
 
   useEffect(()=>{
     dispatch(asyncgetusers());
     // getproduct();
-  },[]);
-
+  }, []);
 
   return (
-    <div>App</div>
+    <div className='w-screen h-screen bg-gray-800'>App</div>
   )
 };
 
