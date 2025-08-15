@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 // import axios from  "../src/api/axiosconfig"
-import { asyncgetusers } from './store/userAction'
-import { useSelector, useDispatch } from 'react-redux'
+import { asyncgetusers } from "./store/userAction";
+import { useSelector, useDispatch } from "react-redux";
+import Mainroute from "./routes/Mainroute";
+import Nav from "./components/Nav";
 
 const App = () => {
-  const data  = useSelector((state) => state)
+  const data = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   // const getproduct = async () =>{
@@ -19,14 +21,18 @@ const App = () => {
 
   console.log(data);
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(asyncgetusers());
     // getproduct();
-  }, []);
-
+  }, [dispatch]);
+  
   return (
-    <div className='w-screen h-screen bg-gray-800'>App</div>
-  )
+    <div className="W-screen h-scree">
+     <Nav/>
+     <Mainroute/>
+     
+    </div>
+  );
 };
 
-export default App
+export default App;
