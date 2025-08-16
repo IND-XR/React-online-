@@ -58,7 +58,7 @@ const Nav  = () => {
           {/* Home */}
           <div className="hidden md:flex items-center space-x-8">
             <NavLink
-              to="/home"
+              to="/Home"
               className={({ isActive }) =>
                 `px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                   isActive
@@ -83,7 +83,8 @@ const Nav  = () => {
               Products
             </NavLink>
 
-            <div className="text-center font-medium pt-4 border-t border-gray-200 space-y-3">
+            <div className=" hidden md:flex items-center space-x-8 ">
+                
                 <NavLink
                   to="/login"
                   onClick={() => setIsMenuOpen(false)}
@@ -91,6 +92,16 @@ const Nav  = () => {
                 >
                   Login
                 </NavLink>
+
+
+                <NavLink 
+                  to="/Signup"
+                //   onClick={()=> }
+                  className= "block w-full text-center px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-200 shadow-md font-medium"
+                >
+                    SignUp
+                </NavLink>
+
             </div>
 
             {/* <Link
