@@ -83,6 +83,33 @@ const Nav  = () => {
               Products
             </NavLink>
 
+            <NavLink
+              to="/About"
+              className={({ isAction }) =>
+                `px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                  isAction
+                    ? "text-blue-600 bg-blue-50"
+                    : "text-gray-600 hover:text-blue-600 hover:bg-gray-50"
+                }`
+              }
+            >
+              About
+            </NavLink>
+            
+            <NavLink
+              to="/Services"
+              className={({ isAction }) =>
+                `px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                  isAction
+                    ? "text-blue-600 bg-blue-50"
+                    : "text-gray-600 hover:text-blue-600 hover:bg-gray-50"
+                }`
+              }
+            >
+              Services
+            </NavLink>
+
+
             <div className=" hidden md:flex items-center space-x-8 ">
                 
                 <NavLink

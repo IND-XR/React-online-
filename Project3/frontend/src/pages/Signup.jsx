@@ -83,7 +83,7 @@ import {
         <div className="max-w-md w-full space-y-8">
           <div className="bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 p-8">
             {/* Header */}
-            <div classNam e="text-center">
+            <div className="text-center">
               <div className="mx-auto h-16 w-16 bg-gradient-to-r from-emerald-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 transform -rotate-3 hover:rotate-0 transition-transform duration-300">
                 <User className="h-8 w-8 text-white" />
               </div>
