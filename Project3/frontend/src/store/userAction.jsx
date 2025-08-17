@@ -1,5 +1,5 @@
 import axios from "../api/axiosconfig"
-import { loaduser } from "./userSlice"
+import { loaduser } from "./reducers/userSlice"
 
 export const asyncgetusers =  () => async (dispatch, getState) =>{
 
