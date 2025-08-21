@@ -38,8 +38,6 @@ const isActivePath = (path) => location.pathname === path;
     //     console.log(setIsMenuOpen())
 
     //   }
-
-
     const handleLogout = () => {
         // dispatch();
         setIsMenuOpen(false);
