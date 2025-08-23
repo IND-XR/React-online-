@@ -1,7 +1,12 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:3000", // Replace this with your API's base URL
+  baseURL: "http://localhost:3000",
+  headers: {
+    "Content-Type": "application/json",
+  },
+
+// Replace this with your API's base URL
 //   headers: {
 //     'Authorization': 'Bearer your_token_here', // Add your default authorization header if needed
 //     'Content-Type': 'application/json', // Set the default content type for requests

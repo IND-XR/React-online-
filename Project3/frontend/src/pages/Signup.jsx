@@ -23,8 +23,8 @@ import {
   AlertCircle,
   CheckCircle,
 } from "lucide-react";
-
-
+import { asyncregisterusers } from "../store/actions/userAction";
+// import { useDispatch } from "react-redux";
 
   // const [formData, setFormData] = useState({
   //   name: '',
@@ -56,6 +56,7 @@ import {
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [user, setuser] = useState("");
     
+    const [fullName, setFullName] = useState("");
     const [errors, setErrors] = useState({
     // name: '',
     // email: '',
@@ -64,18 +65,38 @@ import {
   });
 
 
-    const { register,
-       reset,
-        handleSubmit 
+    const { 
+      register,
+      reset,
+      handleSubmit,
+      // formState:{errors},
       } = useForm();
+    
+   const dispatch = useDispatch();
 
   const SignUphandler = (User) => {
       User.id = nanoid();
       console.log(User);
+      dispatch(asyncregisterusers(User));
+
       // console.log("user Name:", User.name);
       // console.log("User:", JSON.stringify(User));
     };
 
+    // const SignUphandler = (e) => {
+
+    // const newUser = {
+    //   id: nanoid(),
+    //   username: fullName,
+    //   email : email,
+    //   password,
+    // };
+
+    // console.log("Sending user:", newUser);
+
+    // dispatch(asyncregisterusers(newUser));
+    // // reset();
+// };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -116,16 +137,18 @@ import {
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                       <User className="h-5 w-5 text-gray-400" />
                     </div>
+
                     <input
-                     {...register("user")}
+                     {...register("User")}
                       id="name"
                       // name="name"
                       type="text"
                       autoComplete="name"
-                      value={user}
+                      value={fullName}
+                      //  value={user}
                       // value={formData.name}
                       // onChange={handleInputChange}
-                       onChange={(e) => setuser(e.target.value)}
+                       onChange={(e) => setFullName(e.target.value)}
                       className={`w-full pl-10 pr-4 py-3 border ${
                         errors.name ? "border-red-300" : "border-gray-300"
                       } rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm`}

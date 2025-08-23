@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {    // data kya aane wala hai iske andar  ( null yah object ) hoga
-    data : []
+    user : []
 }
 
 const userslice = createSlice({   // slice ek object hai 
