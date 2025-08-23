@@ -1,52 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { FaUserLock } from "react-icons/fa";
 import {
-  Mail,
-  Lock,
-  Eye,
-  EyeOff,
-  ArrowRight,
-  AlertCircle,
-  User,
-} from "lucide-react";
+  Mail,Lock,Eye,EyeOff,ArrowRight,AlertCircle,User,} from "lucide-react";
 import { useForm } from "react-hook-form";
 import { nanoid } from "@reduxjs/toolkit";
 import { Link } from "react-router-dom";
+import { asyncloginuser } from "../store/actions/userAction";
+import { useDispatch, useSelector } from "react-redux";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
 
-//   useEffect(() => {
-//     console.log("Email:", email);
-//     console.log("Errors:", errors);
-//   }, [email, errors]);
-
   const { register, reset, handleSubmit } = useForm();
 
-  // const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     try {
-  //       // Mock successful login
-  //       const mockUser = {
-  //         id: "1",
-  //         email,
-  //         name: "John Doe",
-  //       };
+  const dispatch = useDispatch();
 
-  //       console.log("✅ Login success:", mockUser);
-  //       // dispatch(loginSuccess(mockUser));
-  //       // navigate("/");
-  //     } catch (err) {
-  //       console.error("❌ Login failed:", err);
-  //       // dispatch(loginFailure("Invalid credentials. Please try again."));
+  const LoginHandler = (user) => {
+    user.id = nanoid();
+    console.log(user);
+    dispatch(asyncloginuser(user));
 
-  //     }
-
-  const LoginHandler = (User) => {
-    User.id = nanoid();
-    console.log(User);
   };
 
   return (

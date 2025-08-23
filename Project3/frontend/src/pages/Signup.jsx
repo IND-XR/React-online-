@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 import { FaUserLock } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-
-// import { RootState } from "../store";
-// import {
-//   signupStart,
-//   signupSuccess,
-//   signupFailure,
-//   clearError,
-// } from "../store/authSlice";
-
+;
 import {
   Mail,
   Lock,
@@ -24,79 +16,45 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { asyncregisterusers } from "../store/actions/userAction";
-// import { useDispatch } from "react-redux";
 
-  // const [formData, setFormData] = useState({
-  //   name: '',
-  //   email: '',
-  //   password: '',
-  //   confirmPassword: '',
-  // });
+const Signup = () => {
+  const [email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [user, setuser] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [errors, setErrors] = useState({});
+  const {register,reset,handleSubmit } = useForm();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-   
   
-    // useEffect(() => {
-    //   console.log("Email:", email);
-    //   console.log("Errors:", errors);
-    // }, [email, errors]);
-
- 
-
-  // const handleInputChange = ()=>{
-  //   console.log(handleInputChange)
-
-
-  // }
-
-
-  const Signup = () => {
-     const [email, setEmail] = useState("");
-    const [Password, setPassword] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [user, setuser] = useState("");
-    
-    const [fullName, setFullName] = useState("");
-    const [errors, setErrors] = useState({
-    // name: '',
-    // email: '',
-    // password: '',
-    // confirmPassword: '',
-  });
-
-
-    const { 
-      register,
-      reset,
-      handleSubmit,
-      // formState:{errors},
-      } = useForm();
-    
-   const dispatch = useDispatch();
-
   const SignUphandler = (User) => {
-      User.id = nanoid();
-      console.log(User);
-      dispatch(asyncregisterusers(User));
+    User.id = nanoid();
+    User.isAdmin = false;
+    console.log(User);
+    dispatch(asyncregisterusers(User));
+    navigate("/login");
 
-      // console.log("user Name:", User.name);
-      // console.log("User:", JSON.stringify(User));
-    };
+    console.log("user Name:", User.name);
+    console.log("User:", JSON.stringify(User));
+  };
 
-    // const SignUphandler = (e) => {
+  // const SignUphandler = (e) => {
 
-    // const newUser = {
-    //   id: nanoid(),
-    //   username: fullName,
-    //   email : email,
-    //   password,
-    // };
+  // const newUser = {
+  //   id: nanoid(),
+  //   username: fullName,
+  //   email : email,
+  //   password,
+  // };
 
-    // console.log("Sending user:", newUser);
+  // console.log("Sending user:", newUser);
 
-    // dispatch(asyncregisterusers(newUser));
-    // // reset();
-// };
+  // dispatch(asyncregisterusers(newUser));
+  // // reset();
+  // };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -123,7 +81,10 @@ import { asyncregisterusers } from "../store/actions/userAction";
             )} */}
 
             {/* Form */}
-            <form className="mt-8 space-y-6" onSubmit={handleSubmit(SignUphandler)}>
+            <form
+              className="mt-8 space-y-6"
+              onSubmit={handleSubmit(SignUphandler)}
+            >
               <div className="space-y-4">
                 {/* Name Field */}
                 <div>
@@ -139,7 +100,7 @@ import { asyncregisterusers } from "../store/actions/userAction";
                     </div>
 
                     <input
-                     {...register("User")}
+                      {...register("User")}
                       id="name"
                       // name="name"
                       type="text"
@@ -148,10 +109,9 @@ import { asyncregisterusers } from "../store/actions/userAction";
                       //  value={user}
                       // value={formData.name}
                       // onChange={handleInputChange}
-                       onChange={(e) => setFullName(e.target.value)}
-                      className={`w-full pl-10 pr-4 py-3 border ${
-                        errors.name ? "border-red-300" : "border-gray-300"
-                      } rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm`}
+                      onChange={(e) => setFullName(e.target.value)}
+                      className={`w-full pl-10 pr-4 py-3 border ${errors.name ? "border-red-300" : "border-gray-300"
+                        } rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm`}
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -169,27 +129,25 @@ import { asyncregisterusers } from "../store/actions/userAction";
                     Email Address
                   </label>
 
-
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                       <Mail className="h-5 w-5 text-gray-400" />
                     </div>
                     <input
-                    {...register("email")}
+                      {...register("email")}
                       id="email"
                       name="email"
                       type="email"
                       autoComplete="email"
                       value={email}
                       // onChange={handleInputChange}
-                       onChange={(e) => setEmail(e.target.value)}
-                      className={`w-full pl-10 pr-4 py-3 border ${
-                        errors.email ? "border-red-300" : "border-gray-300"
-                      } rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm`}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className={`w-full pl-10 pr-4 py-3 border ${errors.email ? "border-red-300" : "border-gray-300"
+                        } rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm`}
                       placeholder="Enter your email"
                     />
                   </div>
-                  
+
                   {/* {errors.email && (
                     <p className="text-red-500 text-sm mt-1">{errors.email}</p>
                   )} */}
@@ -207,7 +165,7 @@ import { asyncregisterusers } from "../store/actions/userAction";
                       <Lock className="h-5 w-5 text-gray-400" />
                     </div>
                     <input
-                     {...register("password")}
+                      {...register("password")}
                       id="password"
                       name="password"
                       type={Password ? "text" : "password"}
@@ -215,9 +173,8 @@ import { asyncregisterusers } from "../store/actions/userAction";
                       value={Password}
                       // onChange={handleInputChange}
                       onChange={(e) => setPassword(e.target.value)}
-                      className={`w-full pl-10 pr-12 py-3 border ${
-                        errors.password ? "border-red-300" : "border-gray-300"
-                      } rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm`}
+                      className={`w-full pl-10 pr-12 py-3 border ${errors.password ? "border-red-300" : "border-gray-300"
+                        } rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm`}
                       placeholder="Create a password"
                     />
 
@@ -292,19 +249,18 @@ import { asyncregisterusers } from "../store/actions/userAction";
                       autoComplete="new-password"
                       // value={formData.confirmPassword}
                       // onChange={handleInputChange}
-                      className={`w-full pl-10 pr-12 py-3 border ${
-                        errors.confirmPassword
+                      className={`w-full pl-10 pr-12 py-3 border ${errors.confirmPassword
                           ? "border-red-300"
                           : "border-gray-300"
-                      } rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm`}
+                        } rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm`}
                       placeholder="Confirm your password"
                     />
                     <button
                       type="button"
                       className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                      // onClick={() =>
-                      //   setShowConfirmPassword(!showConfirmPassword)
-                      // }
+                    // onClick={() =>
+                    //   setShowConfirmPassword(!showConfirmPassword)
+                    // }
                     >
                       {showConfirmPassword ? (
                         <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-600" />
@@ -375,7 +331,6 @@ import { asyncregisterusers } from "../store/actions/userAction";
                   </>
                 )}
               </button>
-
 
               {/* Sign In Link */}
               <div className="text-center">

@@ -2,27 +2,52 @@
   "users": [
     {
       "id": "some-id",
-      "User": "john-doe",
+      "User": "john-doe.name",
       "email": "john@doe.com",
-      "password": "1234567"
+      "password": "1234567",
+      "isAdmin": true
     },
     {
-      "id": "Tnw1pwF-pD096VOqXksWH",
-      "User": "anmolsingh Singh",
-      "email": "",
-      "password": "anmolhsd"
+      "id": "ySjrolMUQoevUo5SkX9aN",
+      "User": "Preet",
+      "email": "preet510@gmail.com",
+      "password": "123",
+      "isAdmin": false
     },
     {
-      "id": "moBCbOa2OhufeXF-7jIQv",
-      "User": "anmolsingh Singh",
-      "email": "",
-      "password": "anmolhsd"
+      "id": "L1oufe3H7FAjsnyp0bDkr",
+      "User": "Preet",
+      "email": "preetsingh510@gmail.com",
+      "password": "123",
+      "isAdmin": false
     },
     {
-      "id": "QspOnvzvglYwQPLR6KeLU",
-      "User": "anmolsingh Singh",
+      "id": "PhcwQKjTu_nlrLvKzMMkD",
+      "User": "anmolSingh",
+      "email": "preetsingh510@gmail.com",
+      "password": "anmolhsd",
+      "isAdmin": false
+    },
+    {
+      "id": "g1lxM-k34zJITK5uETPGc",
+      "User": "anmolpreetSingh",
       "email": "",
-      "password": "anmolhsd"
+      "password": "anmol",
+      "isAdmin": false
+    },
+    {
+      "id": "ANUSkgirhxk7s563nj2vM",
+      "User": "anmol",
+      "email": "anmolpreetsingh510@gmail.com",
+      "password": "anmol1",
+      "isAdmin": false
+    },
+    {
+      "id": "On1F098YGevyl8wc_jyRy",
+      "User": "anmol",
+      "email": "anmolpreetsingh510@gmail.com",
+      "password": "anmol1",
+      "isAdmin": false
     }
   ],
   "products": [
