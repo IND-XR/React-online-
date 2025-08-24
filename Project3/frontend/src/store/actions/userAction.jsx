@@ -19,12 +19,13 @@ export const asynccurrentuser = (user) => async (dispatch, getState) =>{
 
 }
 
-
-export const asynclogoutuser = (user) => async (dispatch, getState) =>{
+export const asynclogoutuser = () => async (dispatch, getState) =>{
     try {
 
     //Data ko local storage ke andar save karnege
-    localStorage.setItem("user","");
+    // localStorage.setItem("user","");
+    localStorage.removeItem("user")
+    console.log("user logged Out")
 
     } catch (error) {
         console.log("Errors",error)
@@ -32,7 +33,6 @@ export const asynclogoutuser = (user) => async (dispatch, getState) =>{
     }
 
 }
-
 
 export const asyncloginuser = (user) => async (dispatch, getState) =>{
     try {
@@ -42,7 +42,8 @@ export const asyncloginuser = (user) => async (dispatch, getState) =>{
         // only person ko find karna hai 
         // local storage ke andar hai ya nahi vah check kar hai 
         
-    const data = await axios.get(`/users?email=${user.email}&password=${user.password}`, user);   // this is a API Create by me  /// use se email & or password nikal nahi  or login ke time check karna hai 
+    const { data } = await axios.get(`/users?email=${user.email}&password=${user.password}`);   // this is a API Create by me  /// use se email & or password nikal nahi  or login ke time check karna hai 
+    
     console.log("Response : ", data);
 
     //Data ko local storage ke andar save karnege
@@ -54,7 +55,6 @@ export const asyncloginuser = (user) => async (dispatch, getState) =>{
     }
 
 }
-
 
 export const asyncregisterusers = (user) => async (dispatch, getstate) => {
   try {

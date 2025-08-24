@@ -4,6 +4,7 @@ import { asyncgetusers } from "./store/userAction";
 import { useSelector, useDispatch } from "react-redux";
 import Mainroute from "./routes/Mainroute";
 import Nav from "./components/Nav";
+import { asynccurrentuser } from "./store/actions/userAction";
 
 const App = () => {
   const data = useSelector((state) => state.user);
@@ -25,6 +26,10 @@ const App = () => {
     dispatch(asyncgetusers());
     // getproduct();
   }, [dispatch]);
+
+  useEffect(()=>{
+    dispatch(asynccurrentuser());
+  })
   
   return (
     <div className="W-screen h-scree">
