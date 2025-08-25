@@ -29,7 +29,7 @@ const App = () => {
 
   useEffect(()=>{
     dispatch(asynccurrentuser());
-  })
+  }, [dispatch])
   
   return (
     <div className="W-screen h-scree">

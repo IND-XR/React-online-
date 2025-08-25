@@ -4,7 +4,6 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 import { FaUserLock } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-;
 import {
   Mail,
   Lock,
@@ -25,11 +24,10 @@ const Signup = () => {
   const [user, setuser] = useState("");
   const [fullName, setFullName] = useState("");
   const [errors, setErrors] = useState({});
-  const {register,reset,handleSubmit } = useForm();
+  const { register, reset, handleSubmit } = useForm();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  
   const SignUphandler = (User) => {
     User.id = nanoid();
     User.isAdmin = false;
@@ -110,8 +108,9 @@ const Signup = () => {
                       // value={formData.name}
                       // onChange={handleInputChange}
                       onChange={(e) => setFullName(e.target.value)}
-                      className={`w-full pl-10 pr-4 py-3 border ${errors.name ? "border-red-300" : "border-gray-300"
-                        } rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm`}
+                      className={`w-full pl-10 pr-4 py-3 border ${
+                        errors.name ? "border-red-300" : "border-gray-300"
+                      } rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm`}
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -142,8 +141,9 @@ const Signup = () => {
                       value={email}
                       // onChange={handleInputChange}
                       onChange={(e) => setEmail(e.target.value)}
-                      className={`w-full pl-10 pr-4 py-3 border ${errors.email ? "border-red-300" : "border-gray-300"
-                        } rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm`}
+                      className={`w-full pl-10 pr-4 py-3 border ${
+                        errors.email ? "border-red-300" : "border-gray-300"
+                      } rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm`}
                       placeholder="Enter your email"
                     />
                   </div>
@@ -173,8 +173,9 @@ const Signup = () => {
                       value={Password}
                       // onChange={handleInputChange}
                       onChange={(e) => setPassword(e.target.value)}
-                      className={`w-full pl-10 pr-12 py-3 border ${errors.password ? "border-red-300" : "border-gray-300"
-                        } rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm`}
+                      className={`w-full pl-10 pr-12 py-3 border ${
+                        errors.password ? "border-red-300" : "border-gray-300"
+                      } rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm`}
                       placeholder="Create a password"
                     />
 
@@ -249,18 +250,19 @@ const Signup = () => {
                       autoComplete="new-password"
                       // value={formData.confirmPassword}
                       // onChange={handleInputChange}
-                      className={`w-full pl-10 pr-12 py-3 border ${errors.confirmPassword
+                      className={`w-full pl-10 pr-12 py-3 border ${
+                        errors.confirmPassword
                           ? "border-red-300"
                           : "border-gray-300"
-                        } rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm`}
+                      } rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 bg-white/50 backdrop-blur-sm`}
                       placeholder="Confirm your password"
                     />
                     <button
                       type="button"
                       className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                    // onClick={() =>
-                    //   setShowConfirmPassword(!showConfirmPassword)
-                    // }
+                      // onClick={() =>
+                      //   setShowConfirmPassword(!showConfirmPassword)
+                      // }
                     >
                       {showConfirmPassword ? (
                         <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-600" />

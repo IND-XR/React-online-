@@ -7,11 +7,14 @@ import Login from '../pages/Login'
 import Signup from '../pages/Signup'
 import About from '../pages/About'
 import Services from '../pages/Services'
+import CreateProduct from '../pages/Product/CreateProduct'
+import UpdateProduct from '../pages/Product/UpdateProduct'
 
 
 
 const Mainroute = () => {
   return <Routes>
+
      <Route path="/Home" element={<Home/>} />
      <Route path="/products" element={<Products/>} />
      <Route path='/login'  element={<Login/>} />
@@ -19,6 +22,11 @@ const Mainroute = () => {
      <Route path='/About' element={<About/>}/>
      <Route path='/Services' element={<Services/>}/>
 
+           <Route path='/admin/CreateProduct' element={<CreateProduct/>}/>
+     <Route path='/admin/UpdateProduct' element={<UpdateProduct/>}/>
+
+   
+     
   </Routes>
 }
 

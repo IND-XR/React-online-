@@ -9,16 +9,15 @@ import { useLocation } from 'react-router-dom';
 import {LogOut, Menu, X } from 'lucide-react';
 
 
-
 const Nav = () => {
 
     //   const { isAuthenticated, user } = useSelector((state ) => state.auth);
     //   const dispatch = useDispatch();
     const location = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-
-
+    
+    const user = useSelector(state => state.userReducer.users);
+    console.log(user)
 
 const isActivePath = (path) => location.pathname === path;
     //   const handleLogout = () => {
@@ -71,7 +70,7 @@ const isActivePath = (path) => location.pathname === path;
 
                     {/* Home */}
                     <div className="hidden md:flex items-center space-x-8">
-                        <NavLink
+                          <NavLink
                             to="/Home"
                             className={({ isActive }) =>
                                 `px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${isActive
@@ -95,7 +94,7 @@ const isActivePath = (path) => location.pathname === path;
                             Products
                         </NavLink>
 
-                        <NavLink
+                         <NavLink
                             to="/About"
                             className={({ isAction }) =>
                                 `px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${isAction
@@ -107,7 +106,7 @@ const isActivePath = (path) => location.pathname === path;
                             About
                         </NavLink>
 
-                        <NavLink
+                         <NavLink
                             to="/Services"
                             className={({ isAction }) =>
                                 `px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${isAction
@@ -120,7 +119,42 @@ const isActivePath = (path) => location.pathname === path;
                         </NavLink>
 
 
+                        {user ? ( <> 
+                        
+
+                        {/* <NavLink
+                                to="/admin/CreateProduct"
+                                onClick={() => setIsMenuOpen(false)}
+                                className={({ isActive }) =>
+                                    ` px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${isActive
+                                        ? 'text-blue-600 bg-blue-50'
+                                        : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
+                                    }`
+                                }
+                            >
+                                Create product
+                            </NavLink> */}
+                        </>
+
+                         ) : ( 
+                            <>
+                        
                         <div className=" hidden md:flex items-center space-x-8 ">
+
+
+                            <NavLink
+                                to="/admin/CreateProduct"
+                                onClick={() => setIsMenuOpen(false)}
+                                className={({ isActive }) =>
+                                    ` px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${isActive
+                                        ? 'text-blue-600 bg-blue-50'
+                                        : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
+                                    }`
+                                }
+                            >
+                                Create product
+                            </NavLink>
+
 
                             <NavLink
                                 to="/login"
@@ -140,6 +174,21 @@ const isActivePath = (path) => location.pathname === path;
                             </NavLink>
 
                         </div>
+
+
+                        </>
+                    )}
+                       
+
+                        
+                        
+
+                       
+
+                         
+
+
+
 
                         {/* <Link
               to="/services"
@@ -209,6 +258,14 @@ const isActivePath = (path) => location.pathname === path;
                             >
                                 Services
                             </Link>
+
+                        
+
+                           
+                          
+
+
+                             
 
                             {/* <NavLink
                             
