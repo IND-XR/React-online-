@@ -68,8 +68,9 @@ const isActivePath = (path) => location.pathname === path;
                         <span>AuthApp</span>
                     </Link>
 
-                    {/* Home */}
+
                     <div className="hidden md:flex items-center space-x-8">
+{/* Home */}
                           <NavLink
                             to="/Home"
                             className={({ isActive }) =>
@@ -81,7 +82,7 @@ const isActivePath = (path) => location.pathname === path;
                         >
                             Home
                         </NavLink>
-
+{/* Products */}
                         <NavLink
                             to="/products"
                             className={({ isAction }) =>
@@ -93,7 +94,7 @@ const isActivePath = (path) => location.pathname === path;
                         >
                             Products
                         </NavLink>
-
+ {/* About */}
                          <NavLink
                             to="/About"
                             className={({ isAction }) =>
@@ -106,6 +107,7 @@ const isActivePath = (path) => location.pathname === path;
                             About
                         </NavLink>
 
+{/* Services */}
                          <NavLink
                             to="/Services"
                             className={({ isAction }) =>
@@ -138,7 +140,7 @@ const isActivePath = (path) => location.pathname === path;
 
                          ) : ( 
                             <>
-                        
+                        {/* //  Create product */}
                         <div className=" hidden md:flex items-center space-x-8 ">
 
 

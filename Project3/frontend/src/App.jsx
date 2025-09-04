@@ -5,9 +5,14 @@ import { useSelector, useDispatch } from "react-redux";
 import Mainroute from "./routes/Mainroute";
 import Nav from "./components/Nav";
 import { asynccurrentuser } from "./store/actions/userAction";
+import { asyncloadproducts } from "./store/actions/productAction";
 
 const App = () => {
   const data = useSelector((state) => state.user);
+
+  //  const userData = useSelector((state) => state.user);
+  // const productData = useSelector((state) => state.product.products);
+
   const dispatch = useDispatch();
 
   // const getproduct = async () =>{
@@ -28,8 +33,12 @@ const App = () => {
   }, [dispatch]);
 
   useEffect(()=>{
-    dispatch(asynccurrentuser());
+    dispatch(asyncloadproducts());
+    dispatch(asynccurrentuser()); // jaise hi app chale loadproduct bhi chalna chaiye
   }, [dispatch])
+
+  // console.log("User Data:", userData);
+  // console.log("Products:", productData);
   
   return (
     <div className="W-screen h-scree">
