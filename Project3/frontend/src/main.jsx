@@ -7,7 +7,8 @@ import {
   BrowserRouter as Router,
   RouterProvider,
 } from "react-router-dom";
-import store from "./store/store.jsx";
+// import store from "./store/store.js"
+import store from "./store/store";
 import { Provider } from "react-redux";
 
 createRoot(document.getElementById("root")).render(

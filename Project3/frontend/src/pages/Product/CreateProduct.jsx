@@ -8,12 +8,11 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { nanoid } from "@reduxjs/toolkit";
-
+import { asynccreateproduct } from "../../store/actions/productAction";
 
 const CreateProduct = () => {
 
-
-  const { register , rest , handleSubmit} = useForm();
+  const { register , reset , handleSubmit} = useForm();
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -22,11 +21,14 @@ const CreateProduct = () => {
   product.id = nanoid();
   // product.isAdmin = false ;
     // dispatch(asyncregiterusers(product));
+      // send to backend + redux
 
-  console.log("product :-",product)
+    dispatch(asynccreateproduct(product));
 
+  console.log("✅ Product created:-",product);
+
+  reset();
     navigate("/Products")
-
   }
 
 
@@ -68,7 +70,7 @@ const CreateProduct = () => {
                 {...register("title")}
                 whileFocus={{ scale: 1.02 }}
                 type="text"
-                name="title"
+                // name="title"
                 className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
                 placeholder="Enter product title"
                 required
@@ -82,7 +84,8 @@ const CreateProduct = () => {
               {...register("price")}
                 whileFocus={{ scale: 1.02 }}
                 type="number"
-                name="price"
+                 step="0.01"
+                // name="price"
                 className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
                 placeholder="Enter product price"
                 required
@@ -97,7 +100,7 @@ const CreateProduct = () => {
               <motion.textarea
               {...register("description")}
                 whileFocus={{ scale: 1.02 }}
-                name="description"
+                // name="description"
                 className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
                 placeholder="Enter product description"
                 rows="3"
@@ -112,7 +115,7 @@ const CreateProduct = () => {
               {...register("category")}
                 whileFocus={{ scale: 1.02 }}
                 type="text"
-                name="category"
+                // name="category"
                 className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
                 placeholder="e.g. Men's Clothing"
                 required
@@ -128,7 +131,7 @@ const CreateProduct = () => {
               {...register("image")}
                 whileFocus={{ scale: 1.02}}
                 type="url"
-                name="image"
+                // name="image"
                 className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
                 placeholder="https://example.com/image.png"
                 required

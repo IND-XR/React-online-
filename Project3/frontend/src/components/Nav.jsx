@@ -10,7 +10,6 @@ import {LogOut, Menu, X } from 'lucide-react';
 
 
 const Nav = () => {
-
     //   const { isAuthenticated, user } = useSelector((state ) => state.auth);
     //   const dispatch = useDispatch();
     const location = useLocation();

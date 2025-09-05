@@ -14,9 +14,7 @@ const productSlice = createSlice({
             // here we can not call api
             state.products = action.payload;  // yah par data dhal rahe hai to ham kidhar ham or call karnge   // payload matlab  mjo bhi function ke andar call hoga vah aa kar chala jayega 
         },
-
     },
-
 });
 
 export default productSlice.reducer;

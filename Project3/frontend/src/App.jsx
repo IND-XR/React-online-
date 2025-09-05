@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 // import axios from  "../src/api/axiosconfig"
-import { asyncgetusers } from "./store/userAction";
 import { useSelector, useDispatch } from "react-redux";
 import Mainroute from "./routes/Mainroute";
 import Nav from "./components/Nav";
 import { asynccurrentuser } from "./store/actions/userAction";
 import { asyncloadproducts } from "./store/actions/productAction";
+import { asyncgetusers } from "./store/userAction";
 
 const App = () => {
   const data = useSelector((state) => state.user);
@@ -27,10 +27,10 @@ const App = () => {
 
   console.log(data);
 
-  useEffect(() => {
-    dispatch(asyncgetusers());
-    // getproduct();
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(asyncgetusers());
+  //   // getproduct();
+  // }, [dispatch]);
 
   useEffect(()=>{
     dispatch(asyncloadproducts());
@@ -44,7 +44,6 @@ const App = () => {
     <div className="W-screen h-scree">
      <Nav/>
      <Mainroute/>
-     
     </div>
   );
 };

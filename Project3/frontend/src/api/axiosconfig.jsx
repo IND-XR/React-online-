@@ -1,17 +1,31 @@
+
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "http://localhost:3000", // ✅ your backend root
   headers: {
     "Content-Type": "application/json",
   },
+});
+
+export default instance;
+
+
+// import axios from "axios";
+
+// const instance = axios.create({
+//   baseURL: "http://localhost:3000",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
 
 // Replace this with your API's base URL
 //   headers: {
 //     'Authorization': 'Bearer your_token_here', // Add your default authorization header if needed
 //     'Content-Type': 'application/json', // Set the default content type for requests
-  }
-);
+  // }
+// );
+// export default instance
 
 // Add a request interceptor   ( sending data it on )
 // instance.interceptors.request.use(function (config) {
@@ -36,4 +50,3 @@ const instance = axios.create({
 //     return Promise.reject(error);
 //   });
 
-export default instance
