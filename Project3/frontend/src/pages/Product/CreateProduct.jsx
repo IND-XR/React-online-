@@ -21,6 +21,7 @@ const CreateProduct = () => {
   product.id = nanoid();
   // product.isAdmin = false ;
     // dispatch(asyncregiterusers(product));
+    
       // send to backend + redux
 
     dispatch(asynccreateproduct(product));
