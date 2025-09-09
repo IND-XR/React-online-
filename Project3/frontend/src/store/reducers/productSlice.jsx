@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState ={
     products:[],
+    wishlist:[]
+
 };
 
 const productSlice = createSlice({

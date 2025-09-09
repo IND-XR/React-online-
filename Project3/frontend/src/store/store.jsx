@@ -3,6 +3,7 @@ import userSlice from "../store/reducers/userSlice"
 import productSlice from '../store/reducers/productSlice'
 import cartSlice from '../store/reducers/cartSlice'
 import productReducer from "./reducers/productSlice";
+import wishlistReducer from "./reducers/wishlistSlice"
 
 // export default configureStore({
 // eslint-disable-next-line react-refresh/only-export-components
@@ -12,6 +13,7 @@ const store = configureStore({
     ProductReducer : productSlice,
     cartReducer: cartSlice,
     product: productReducer,
+    wishlist: wishlistReducer,
   },
 });
 

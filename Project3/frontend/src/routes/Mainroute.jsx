@@ -9,6 +9,7 @@ import About from '../pages/About'
 import Services from '../pages/Services'
 import CreateProduct from '../pages/Product/CreateProduct'
 import UpdateProduct from '../pages/Product/UpdateProduct'
+import productDetail from '../pages/Product/ProductDetail'
 
 
 
@@ -22,8 +23,10 @@ const Mainroute = () => {
      <Route path='/About' element={<About/>}/>
      <Route path='/Services' element={<Services/>}/>
 
-           <Route path='/admin/CreateProduct' element={<CreateProduct/>}/>
+     <Route path='/admin/CreateProduct' element={<CreateProduct/>}/>
      <Route path='/admin/UpdateProduct' element={<UpdateProduct/>}/>
+     <Route path='/productsDetail' element={<productDetail/>}/>
+
 
    
      
