@@ -5,7 +5,7 @@ import {
    ChevronDown, Grid3X3, List, Search, Heart, Star, ShoppingCart 
 } from "lucide-react";
 import { Navigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 // ********************************************
 
 
@@ -47,11 +47,15 @@ const getCartQuantity = (id) =>
 
   const categories = ["All", ...Array.from(new Set(allproducts.map((p) => p.category)))];
 
+  const navigate = useNavigate();
+  
+const handleProductClick = (products) =>{
 
-const handleProductClick = ( ) =>{
 
-  console.log("clicke the one ",handleProductClick)
-   navigator(`/ProductDetail`);
+
+  console.log("clicke the one ",products);
+
+  navigate("/ProductsDetail")
 
 }
 

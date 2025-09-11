@@ -2,15 +2,16 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import  Home  from '../pages/Home'
-import Products from '../pages/products'
+import Products from '../pages/Products'
 import Login from '../pages/Login'
 import Signup from '../pages/Signup'
 import About from '../pages/About'
 import Services from '../pages/Services'
 import CreateProduct from '../pages/Product/CreateProduct'
 import UpdateProduct from '../pages/Product/UpdateProduct'
-import productDetail from '../pages/Product/ProductDetail'
+// import ProductsDetail from '../pages/Product/ProductDetail'
 
+import ProductDetail from '../pages/Product/ProductDetail'
 
 
 const Mainroute = () => {
@@ -25,11 +26,8 @@ const Mainroute = () => {
 
      <Route path='/admin/CreateProduct' element={<CreateProduct/>}/>
      <Route path='/admin/UpdateProduct' element={<UpdateProduct/>}/>
-     <Route path='/productsDetail' element={<productDetail/>}/>
+     <Route path='/productsDetail' element={<ProductDetail/>}/>
 
-
-   
-     
   </Routes>
 }
 
