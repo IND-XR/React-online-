@@ -20,6 +20,13 @@
       "email": "anmolpreetsingh510@gmail.com",
       "password": "anmol1",
       "isAdmin": false
+    },
+    {
+      "id": "kGAxY4204wzn5v-3gPXxO",
+      "User": "anmolpreet Singh",
+      "email": "anmolpreetsingh510@gmail.com",
+      "password": "anmol1",
+      "isAdmin": false
     }
   ],
   "products": [
@@ -70,6 +77,30 @@
       "description": "vdfvd",
       "category": "men",
       "image": "https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg"
+    },
+    {
+      "id": "o1d9pEC7aftMRp1ZxslTD",
+      "title": "sds",
+      "price": "3224",
+      "description": "dsdfbd",
+      "category": "men",
+      "image": "https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg"
+    },
+    {
+      "id": "sZebgNFmJLA1s7cvGyjC4",
+      "title": "anmol",
+      "price": "122.98",
+      "description": "cx xc ",
+      "category": "men",
+      "image": "https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg"
+    },
+    {
+      "id": "xBCA9LrTxKbx9FRLbnewn",
+      "title": "anml",
+      "price": "12343",
+      "description": "vvsdfvd",
+      "category": "men",
+      "image": "https://tse2.mm.bing.net/th/id/OIP.LcFGxZtCT3nHPi3JPH0sHAHaGE?pid=Api&P=0&h=180"
     }
   ],
   "cart": []

@@ -4,7 +4,7 @@ import axios from "../../api/axiosconfig";
 // import { loaduser } from "../reducers/userSlice";
 import { loadproduct } from "../reducers/productSlice";
 
-export const asyncloadproducts = ( ) => async (dispatch, getState) => {   // yah call hoga usse ke baad 
+export const asyncloadproducts = ( ) =>  async (dispatch, getState) => {   // yah call hoga usse ke baad 
     try {
     const { data } = await axios.get("/products");
     dispatch(loadproduct(data));  // load = reducers ka productSlice hai / data loadproduct slice ke andar  chale jayega  

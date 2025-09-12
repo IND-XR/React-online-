@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState ={
     products:[],
-    wishlist:[]
+    wishlist:[],
+    // selectedProduct: null,
 
 };
 
@@ -16,8 +17,17 @@ const productSlice = createSlice({
             // here we can not call api
             state.products = action.payload;  // yah par data dhal rahe hai to ham kidhar ham or call karnge   // payload matlab  mjo bhi function ke andar call hoga vah aa kar chala jayega 
         },
+        setSelectedProduct: (state, action) => {
+      state.selectedProduct = action.payload;
+    },
+    wishlist: (state, action) => {
+      // optional: prevent duplicates
+      if (!state.wishlist.find((item) => item.id === action.payload.id)) {
+        state.wishlist.push(action.payload);
+      }
+    },
     },
 });
 
 export default productSlice.reducer;
-export const { loadproduct } = productSlice.actions;
+export const {  loadproduct, setSelectedProduct, wishlist } = productSlice.actions;

@@ -32,17 +32,19 @@ const Products = () => {
   // ********************************************
 
 
-    const [viewMode, setViewMode] = useState("grid");
+  const [viewMode, setViewMode] = useState("grid");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
-    const [sortBy, setSortBy] = useState("name"); // <-- define state
+  const [sortBy, setSortBy] = useState("name"); // <-- define state
 
 
 const getCartQuantity = (id) =>
   cartItems.find((item) => item.id === id)?.quantity || 0;
   // categories
-  const allproducts = useSelector((state) => state.product.products || []);
-  const cartItems = useSelector((state) => state.cartReducer.items || []);
+
+  const allproducts = useSelector((state) => state.product?.products || []);
+const cartItems = useSelector((state) => state.cartReducer?.items || []);
+
 
 
   const categories = ["All", ...Array.from(new Set(allproducts.map((p) => p.category)))];
