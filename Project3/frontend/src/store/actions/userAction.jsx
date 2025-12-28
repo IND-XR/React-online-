@@ -1,24 +1,7 @@
 // import axios from "axios";
 import axios from "../../api/axiosconfig";
-import { loaduser } from "../reducers/userSlice";
+import { loaduser, logoutuser } from "../reducers/userSlice";
 
-
-// export const asynccurrentuser = () => async (dispatch, getState) =>{
-//     try {
-
-//     //Data ko local storage ke andar save karnege
-//     const user = JSON.parse(localStorage.getItem("user"));
-
-//     // user ko userslice ke andar add karenge
-//     if(user) dispatch(loaduser(user));
-//     else console.log("user not login !!")
-
-//     } catch (error) {
-//         console.log("Errors",error)
-        
-//     }
-
-// }
 
 export const asynccurrentuser = () => async (dispatch) => {
   try {
@@ -43,43 +26,32 @@ export const asynccurrentuser = () => async (dispatch) => {
 
 export const asynclogoutuser = () => async (dispatch, getState) =>{
     try {
-
-    //Data ko local storage ke andar save karnege
-    // localStorage.setItem("user","");
-    localStorage.removeItem("user")
-    // dispatch(loaduser(null)); // reset redux   exta
-    console.log("user logged Out")
+      localStorage.removeItem("user")
+      dispatch(logoutuser()); // reset redux   
+      console.log("user logged Out")
     } catch (error) {
         console.log("Errors",error)
-        
     }
-
 }
 
 export const asyncloginuser = (user) => async (dispatch, getState) =>{
     try {
-
-        // there is no API call this 
-        // **********this thing to do************
-        // only person ko find karna hai 
-        // local storage ke andar hai ya nahi vah check kar hai 
+        const { data } = await axios.get(`/users?email=${user.email}&password=${user.password}`);
         
-    const { data } = await axios.get(`/users?email=${user.email}&password=${user.password}`);   // this is a API Create by me  /// use se email & or password nikal nahi  or login ke time check karna hai 
-    
-    console.log("Response : ", data);
-    if (data.length === 0) {
-      console.log("Invalid email or password");
-      return;
-    }
+        console.log("Response : ", data);
+        if (data.length === 0) {
+          console.log("Invalid email or password");
+          return;
+        }
 
-    //Data ko local storage ke andar save karnege
-    localStorage.setItem("user",JSON.stringify(data[0]));
+        //Data ko local storage ke andar save karnege
+        localStorage.setItem("user", JSON.stringify(data[0]));
+        dispatch(loaduser(data[0])); // ✅ update redux
+        return data[0];
 
     } catch (error) {
-        console.log("Errors",error)
-        
+        console.log("Login Error:", error)
     }
-
 }
 
 export const asyncregisterusers = (user) => async (dispatch, getstate) => {
@@ -95,12 +67,13 @@ export const asyncregisterusers = (user) => async (dispatch, getstate) => {
 
     console.log("Sending user:", payload);
 
-    const res = await axios.post("/users", user);
-    console.log("Response : ", res.data);
+    const res = await axios.post("/users", payload);
+    console.log("Registration Response : ", res.data);
 
-    // localStorage.setItem("user", JSON.stringify(res.data));
-    // dispatch(loaduser(res.data)); // ✅ update redux
+    localStorage.setItem("user", JSON.stringify(res.data));
+    dispatch(loaduser(res.data)); // ✅ update redux
+    return res.data;
   } catch (error) {
-    console.log("Errors", error);
+    console.log("Registration Error:", error);
   }
 };

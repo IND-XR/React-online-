@@ -20,7 +20,7 @@ const userslice = createSlice({   // slice ek object hai
   },
 });
 
-export const {loaduser,logoutuser}  = userslice.actions;
+export const {loaduser, logoutuser} = userslice.actions;
 
 export default userslice.reducer;
 

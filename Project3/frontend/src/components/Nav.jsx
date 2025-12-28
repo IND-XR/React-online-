@@ -1,12 +1,14 @@
 import { isAction } from "@reduxjs/toolkit";
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink , useNavigate} from "react-router-dom";
+
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 // import { RootState } from '../store';
 // import { logout } from '../store/authSlice';
 import {LogOut, Menu, X } from 'lucide-react';
+import { asynclogoutuser } from "../store/actions/userAction";
 
 
 const Nav = () => {
@@ -15,8 +17,7 @@ const Nav = () => {
     const location = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     
-    const user = useSelector(state => state.userReducer.users);
-    console.log(user)
+   
 
 const isActivePath = (path) => location.pathname === path;
     //   const handleLogout = () => {
@@ -36,14 +37,25 @@ const isActivePath = (path) => location.pathname === path;
     //     console.log(setIsMenuOpen())
 
     //   }
-    const handleLogout = () => {
-        // dispatch();
-        setIsMenuOpen(false);
-    };
+    // const handleLogout = () => {
+    //     // dispatch();
+        
+    // };
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const user = useSelector((state) => state.user.user);
+     console.log(user)
+    
+    const handleLogout = async ()=>{
+        setIsMenuOpen(false);
+        dispatch(asynclogoutuser());
+        navigate("/login");
+    }
 
     return (
         <nav className=" bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-gray-200  ">
@@ -120,28 +132,32 @@ const isActivePath = (path) => location.pathname === path;
                         </NavLink>
 
 
-                        {user ? ( <> 
-                        
-
-                        {/* <NavLink
-                                to="/admin/CreateProduct"
-                                onClick={() => setIsMenuOpen(false)}
-                                className={({ isActive }) =>
-                                    ` px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${isActive
-                                        ? 'text-blue-600 bg-blue-50'
-                                        : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
-                                    }`
-                                }
-                            >
-                                Create product
-                            </NavLink> */}
-                        </>
-
+                        {user ? ( 
+                            <div className="hidden md:flex items-center space-x-4">
+                                <NavLink
+                                    to="/admin/CreateProduct"
+                                    className={({ isActive }) =>
+                                        `px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${isActive
+                                            ? 'text-blue-600 bg-blue-50'
+                                            : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
+                                        }`
+                                    }
+                                >
+                                    Create Product
+                                </NavLink>
+                                <span className="text-gray-700 font-medium">Welcome, {user.name}</span>
+                                <button 
+                                    onClick={handleLogout}
+                                    className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-200 flex items-center space-x-2"
+                                >
+                                    <LogOut size={18} />
+                                    <span>Logout</span>
+                                </button>
+                            </div>
                          ) : ( 
                             <>
                         {/* //  Create product */}
                         <div className=" hidden md:flex items-center space-x-8 ">
-
 
                             <NavLink
                                 to="/admin/CreateProduct"
@@ -259,6 +275,45 @@ const isActivePath = (path) => location.pathname === path;
                             >
                                 Services
                             </Link>
+                            {/* User Menu */}
+                            {user ? (
+                                <div className="pt4 border-1 border-gray-200 space-y-3">
+                                    <div className="px3 py text-sm text-gray-700 font-medium">
+                                        Welcome, {user.name}
+                                    </div>
+                                    <Link
+                                        to="/admin/CreateProduct"
+                                        onClick={() => setIsMenuOpen(false)}
+                                        className="block w-full text-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all duration-200 font-medium"
+                                    >
+                                        Create Product
+                                    </Link>
+                                    <button
+                                    onClick={handleLogout}
+                                    className="w-full flex items-center justify-center space-x-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-200 shadow-md"
+                                    >
+                                        <LogOut size={16}/>
+                                        <span>Logout</span>
+                                    </button>
+                                    </div>
+                                
+                            ):(
+                                <div className="pt-4 border-t border-gray-200 space-y-3">
+                                    <Link
+                                    to ="/login"
+                                    onClick={()=> setIsMenuOpen(false)}
+                                    className="block w-full text-center px-4 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-200 font-medium">
+                                        Login
+                                    </Link>
+                                    <Link
+                                       to="/signup"
+                                       onClick={()=> setIsMenuOpen(false)}
+                                       className="block w-full text-center px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-200 shadow-md font-medium"
+                                    >
+                                        Sign Up 
+                                    </Link>
+                                    </div>
+                            ) }
 
                         
 

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
 
-import { wishlist, setSelectedProduct } from "../../store/reducers/productSlice";
+import { setSelectedProduct } from "../../store/reducers/productSlice";
+import { addToWishlist, removeFromWishlist } from "../../store/reducers/wishlistSlice";
 
 import { 
   ShoppingCart, 
@@ -30,17 +31,10 @@ const ProductDetail = () => {
   const [activeTab, setActiveTab] = useState("description");
 
   // 🟢 Redux selectors 
-  // Wrong ❌
-
-
-//   const products = useSelector((state) => state.ProductReducer.products);
-// const selectedProduct = useSelector((state) => state.ProductReducer.selectedProduct);
- const wishlistItems = useSelector((state) => state.ProductReducer.wishlist);
-  // const wishlistItems = useSelector((state) => state.products.wishlist);
-  const cart = useSelector((state) => state.cartReducer.items);
-
-  const products = useSelector((state) => state.ProductReducer.products);
-const selectedProduct = useSelector((state) => state.ProductReducer.selectedProduct);
+  const products = useSelector((state) => state.product.products);
+  const selectedProduct = useSelector((state) => state.product.selectedProduct);
+  const wishlistItems = useSelector((state) => state.wishlist.items);
+  const cart = useSelector((state) => state.cart.items);
 
   
 const p =
